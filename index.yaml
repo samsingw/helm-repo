@@ -1,0 +1,17 @@
+apiVersion: v1
+entries:
+  bookstack:
+  - apiVersion: v2
+    appVersion: 0.27.5
+    created: "2020-04-17T21:12:38.3814664+07:00"
+    description: Wiki application made by Bookstack and MySQL
+    digest: 46c3ca1cf4bb7101537d8b01b0b9d14fbe02fba9913673d78c6a987a4ae3b60d
+    maintainers:
+    - email: pacroy@gmail.com
+      name: Par
+    name: bookstack
+    type: application
+    urls:
+    - bookstack-1.0.0.tgz
+    version: 1.0.0
+generated: "2020-04-17T21:12:38.3801975+07:00"
