@@ -3,7 +3,7 @@ entries:
   bookstack:
   - apiVersion: v2
     appVersion: 0.27.5
-    created: "2020-04-17T21:12:38.3814664+07:00"
+    created: "2020-04-17T21:32:00.2438169+07:00"
     description: Wiki application made by Bookstack and MySQL
     digest: 46c3ca1cf4bb7101537d8b01b0b9d14fbe02fba9913673d78c6a987a4ae3b60d
     maintainers:
@@ -14,4 +14,24 @@ entries:
     urls:
     - bookstack-1.0.0.tgz
     version: 1.0.0
-generated: "2020-04-17T21:12:38.3801975+07:00"
+  cert-manager:
+  - apiVersion: v2
+    appVersion: 0.14.2
+    created: "2020-04-17T21:32:00.2470625+07:00"
+    dependencies:
+    - name: cert-manager
+      repository: https://charts.jetstack.io
+      version: v0.14.2
+    description: Jetstack's cert-manager with CRDs
+    digest: dca6d133f6cf8409177175808d5e8414c5addb6d7da78e741a9571063b80eba7
+    maintainers:
+    - email: pacroy@gmail.com
+      name: Par
+    name: cert-manager
+    sources:
+    - https://github.com/pacroy/cert-manager-with-crds
+    type: application
+    urls:
+    - cert-manager-0.14.2.tgz
+    version: 0.14.2
+generated: "2020-04-17T21:32:00.2417426+07:00"
