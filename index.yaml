@@ -3,7 +3,7 @@ entries:
   bookstack:
   - apiVersion: v2
     appVersion: 0.27.5
-    created: "2020-04-18T17:10:14.5580792+07:00"
+    created: "2020-04-18T17:21:27.1667899+07:00"
     description: Wiki application made by Bookstack and MySQL
     digest: 46c3ca1cf4bb7101537d8b01b0b9d14fbe02fba9913673d78c6a987a4ae3b60d
     maintainers:
@@ -17,7 +17,7 @@ entries:
   cert-manager:
   - apiVersion: v2
     appVersion: 0.14.2
-    created: "2020-04-18T17:10:14.5656039+07:00"
+    created: "2020-04-18T17:21:27.1702003+07:00"
     dependencies:
     - name: cert-manager
       repository: https://charts.jetstack.io
@@ -36,10 +36,10 @@ entries:
     version: 0.14.2
   nginx-redirect:
   - apiVersion: v2
-    appVersion: 1.0.0
-    created: "2020-04-18T17:10:14.5665499+07:00"
+    appVersion: 1.17.0
+    created: "2020-04-18T17:21:27.1713421+07:00"
     description: Simple Redirector with nginx
-    digest: 8b226bfce69d9502637ee736e4ecfa78e78d57d486a7abc76a5a7a17a7a87ac7
+    digest: bced76a7bf86ad7e249227e4357343ddc1ca5100f767acdcfc0803b6458d3020
     maintainers:
     - email: pacroy@gmail.com
       name: Par
@@ -50,4 +50,4 @@ entries:
     urls:
     - nginx-redirect-1.0.0.tgz
     version: 1.0.0
-generated: "2020-04-18T17:10:14.5535597+07:00"
+generated: "2020-04-18T17:21:27.1659993+07:00"
