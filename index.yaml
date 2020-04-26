@@ -3,7 +3,7 @@ entries:
   bookstack:
   - apiVersion: v2
     appVersion: 0.27.5
-    created: "2020-04-26T11:59:53.285768793Z"
+    created: "2020-04-26T12:12:52.516078034Z"
     description: Wiki application made by Bookstack and MySQL
     digest: 681641afe2a06d22f8cfcada69bc60336b225f7257437fb57abe612394cb9001
     maintainers:
@@ -16,7 +16,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: 0.27.5
-    created: "2020-04-26T11:59:53.285469493Z"
+    created: "2020-04-26T12:12:52.515678533Z"
     description: Wiki application made by Bookstack and MySQL
     digest: 46c3ca1cf4bb7101537d8b01b0b9d14fbe02fba9913673d78c6a987a4ae3b60d
     maintainers:
@@ -30,7 +30,7 @@ entries:
   cert-manager:
   - apiVersion: v2
     appVersion: 0.14.2
-    created: "2020-04-26T11:59:53.305068835Z"
+    created: "2020-04-26T12:12:52.522359648Z"
     dependencies:
     - name: cert-manager
       repository: https://charts.jetstack.io
@@ -50,7 +50,22 @@ entries:
   nginx-redirect:
   - apiVersion: v2
     appVersion: 1.17.0
-    created: "2020-04-26T11:59:53.312446051Z"
+    created: "2020-04-26T12:12:52.52341795Z"
+    description: Simple Redirector with nginx
+    digest: 0b838b982559d487a0467e8adfa48e59217d4d677a7b69c15fb0f3454d71c2f6
+    maintainers:
+    - email: pacroy@gmail.com
+      name: Par
+    name: nginx-redirect
+    sources:
+    - https://github.com/pacroy/nginx-redirect
+    type: application
+    urls:
+    - nginx-redirect-1.1.1.tgz
+    version: 1.1.1
+  - apiVersion: v2
+    appVersion: 1.17.0
+    created: "2020-04-26T12:12:52.523070049Z"
     description: Simple Redirector with nginx
     digest: 737f4762912df33ff87e1d73d335d8d28a6f25959d1c2913080474fc286cbd77
     maintainers:
@@ -65,7 +80,7 @@ entries:
     version: 1.1.0
   - apiVersion: v2
     appVersion: 1.17.0
-    created: "2020-04-26T11:59:53.31196605Z"
+    created: "2020-04-26T12:12:52.522725349Z"
     description: Simple Redirector with nginx
     digest: bced76a7bf86ad7e249227e4357343ddc1ca5100f767acdcfc0803b6458d3020
     maintainers:
@@ -78,4 +93,4 @@ entries:
     urls:
     - nginx-redirect-1.0.0.tgz
     version: 1.0.0
-generated: "2020-04-26T11:59:53.27029556Z"
+generated: "2020-04-26T12:12:52.515227932Z"
