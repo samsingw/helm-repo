@@ -3,7 +3,7 @@ entries:
   bookstack:
   - apiVersion: v2
     appVersion: 0.27.5
-    created: "2020-04-26T12:51:23.354544681Z"
+    created: "2020-04-27T13:11:05.669201709Z"
     description: Wiki application made by Bookstack and MySQL
     digest: dfa532a4b5753d58c2633685fef34f534ce26ce8b4900f231fbd8b3836865bb8
     maintainers:
@@ -18,7 +18,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: 0.27.5
-    created: "2020-04-26T12:51:23.35417208Z"
+    created: "2020-04-27T13:11:05.668666603Z"
     description: Wiki application made by Bookstack and MySQL
     digest: 46c3ca1cf4bb7101537d8b01b0b9d14fbe02fba9913673d78c6a987a4ae3b60d
     maintainers:
@@ -32,7 +32,7 @@ entries:
   cert-manager:
   - apiVersion: v2
     appVersion: 0.14.2
-    created: "2020-04-26T12:51:23.358304389Z"
+    created: "2020-04-27T13:11:05.692356845Z"
     dependencies:
     - name: cert-manager
       repository: https://charts.jetstack.io
@@ -52,7 +52,7 @@ entries:
   nginx-redirect:
   - apiVersion: v2
     appVersion: 1.17.0
-    created: "2020-04-26T12:51:23.359372891Z"
+    created: "2020-04-27T13:11:05.703410958Z"
     description: Simple Redirector with nginx
     digest: 0b838b982559d487a0467e8adfa48e59217d4d677a7b69c15fb0f3454d71c2f6
     maintainers:
@@ -67,7 +67,7 @@ entries:
     version: 1.1.1
   - apiVersion: v2
     appVersion: 1.17.0
-    created: "2020-04-26T12:51:23.35898839Z"
+    created: "2020-04-27T13:11:05.702986454Z"
     description: Simple Redirector with nginx
     digest: 737f4762912df33ff87e1d73d335d8d28a6f25959d1c2913080474fc286cbd77
     maintainers:
@@ -82,7 +82,7 @@ entries:
     version: 1.1.0
   - apiVersion: v2
     appVersion: 1.17.0
-    created: "2020-04-26T12:51:23.35869359Z"
+    created: "2020-04-27T13:11:05.70260775Z"
     description: Simple Redirector with nginx
     digest: bced76a7bf86ad7e249227e4357343ddc1ca5100f767acdcfc0803b6458d3020
     maintainers:
@@ -95,4 +95,20 @@ entries:
     urls:
     - nginx-redirect-1.0.0.tgz
     version: 1.0.0
-generated: "2020-04-26T12:51:23.353721679Z"
+  rocketchat:
+  - apiVersion: v2
+    appVersion: 3.1.1
+    created: "2020-04-27T13:11:05.703722061Z"
+    description: Rocket.Chat
+    digest: d9d2cc1c3cf4742076306df3ff15f86f03001fb8af344154ea18c78304a7ee6f
+    maintainers:
+    - email: pacroy@gmail.com
+      name: Par
+    name: rocketchat
+    sources:
+    - https://github.com/pacroy/rocketchat
+    type: application
+    urls:
+    - rocketchat-1.0.0.tgz
+    version: 1.0.0
+generated: "2020-04-27T13:11:05.636140871Z"
