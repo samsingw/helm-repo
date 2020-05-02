@@ -3,9 +3,9 @@ entries:
   bookstack:
   - apiVersion: v2
     appVersion: 0.29.1
-    created: "2020-05-02T13:35:56.507275034Z"
+    created: "2020-05-02T14:37:09.983934759Z"
     description: Wiki application made by Bookstack and MySQL
-    digest: 677316f1df4cfba354aad971e236c528b331dd5804d7d017ad73cc5af54d21dc
+    digest: 30fdb01fda486abc33488cc12d757c71cbbcfea2f9eaaab1344747f0396e85a7
     maintainers:
     - email: pacroy@gmail.com
       name: Par
@@ -18,7 +18,7 @@ entries:
     version: 1.1.0
   - apiVersion: v2
     appVersion: 0.27.5
-    created: "2020-05-02T13:35:56.506787535Z"
+    created: "2020-05-02T14:37:09.983574761Z"
     description: Wiki application made by Bookstack and MySQL
     digest: dfa532a4b5753d58c2633685fef34f534ce26ce8b4900f231fbd8b3836865bb8
     maintainers:
@@ -33,7 +33,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: 0.27.5
-    created: "2020-05-02T13:35:56.489034596Z"
+    created: "2020-05-02T14:37:09.982439665Z"
     description: Wiki application made by Bookstack and MySQL
     digest: 46c3ca1cf4bb7101537d8b01b0b9d14fbe02fba9913673d78c6a987a4ae3b60d
     maintainers:
@@ -47,7 +47,7 @@ entries:
   cert-manager:
   - apiVersion: v2
     appVersion: 0.14.2
-    created: "2020-05-02T13:35:56.55544567Z"
+    created: "2020-05-02T14:37:09.987464745Z"
     dependencies:
     - name: cert-manager
       repository: https://charts.jetstack.io
@@ -67,7 +67,7 @@ entries:
   nginx-redirect:
   - apiVersion: v2
     appVersion: 1.17.0
-    created: "2020-05-02T13:35:56.610902281Z"
+    created: "2020-05-02T14:37:09.98864824Z"
     description: Simple Redirector with nginx
     digest: 0b838b982559d487a0467e8adfa48e59217d4d677a7b69c15fb0f3454d71c2f6
     maintainers:
@@ -82,7 +82,7 @@ entries:
     version: 1.1.1
   - apiVersion: v2
     appVersion: 1.17.0
-    created: "2020-05-02T13:35:56.607579593Z"
+    created: "2020-05-02T14:37:09.988316041Z"
     description: Simple Redirector with nginx
     digest: 737f4762912df33ff87e1d73d335d8d28a6f25959d1c2913080474fc286cbd77
     maintainers:
@@ -97,7 +97,7 @@ entries:
     version: 1.1.0
   - apiVersion: v2
     appVersion: 1.17.0
-    created: "2020-05-02T13:35:56.606031798Z"
+    created: "2020-05-02T14:37:09.987876343Z"
     description: Simple Redirector with nginx
     digest: bced76a7bf86ad7e249227e4357343ddc1ca5100f767acdcfc0803b6458d3020
     maintainers:
@@ -113,7 +113,7 @@ entries:
   rocketchat:
   - apiVersion: v2
     appVersion: 3.1.1
-    created: "2020-05-02T13:35:56.611467379Z"
+    created: "2020-05-02T14:37:09.988991338Z"
     description: Rocket.Chat
     digest: d9d2cc1c3cf4742076306df3ff15f86f03001fb8af344154ea18c78304a7ee6f
     maintainers:
@@ -126,4 +126,4 @@ entries:
     urls:
     - rocketchat-1.0.0.tgz
     version: 1.0.0
-generated: "2020-05-02T13:35:56.485357508Z"
+generated: "2020-05-02T14:37:09.981857168Z"
