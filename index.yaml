@@ -5,7 +5,7 @@ entries:
       sha: 381477c
     apiVersion: v2
     appVersion: 0.3.1
-    created: "2021-05-18T11:34:53.562651755Z"
+    created: "2021-05-18T12:21:56.357140255Z"
     description: Update Azure DNS records to mimic Dynamic DNS service
     digest: fa665687bf082b30539462a259e97541e634172dd06eee5c423f6c492456fc68
     maintainers:
@@ -22,7 +22,7 @@ entries:
       sha: 9e4e801
     apiVersion: v2
     appVersion: 0.3.1
-    created: "2021-05-18T11:34:53.550129534Z"
+    created: "2021-05-18T12:21:56.344294034Z"
     description: Update Azure DNS records to mimic Dynamic DNS service
     digest: 66fbccc207d35447fe57a960df7489f2f6d6c13b6dac2b127e684a483b09b30c
     maintainers:
@@ -40,7 +40,7 @@ entries:
       sha: cee26de
     apiVersion: v2
     appVersion: 0.29.3
-    created: "2021-05-18T11:34:53.580515669Z"
+    created: "2021-05-18T12:21:56.377060562Z"
     description: Wiki application made by Bookstack and MySQL
     digest: 1315c1ccba4cd7432a3ceb8c3a64cc170646c07be9fad2e5d9f81da896b3b198
     maintainers:
@@ -57,7 +57,7 @@ entries:
       sha: 5e07a16
     apiVersion: v2
     appVersion: 0.29.3
-    created: "2021-05-18T11:34:53.573081938Z"
+    created: "2021-05-18T12:21:56.368135301Z"
     description: Wiki application made by Bookstack and MySQL
     digest: cca1ab7d1e60bffb8b1b01eab1d61444aa80ff7be4214c4d4703afef49ed90f9
     maintainers:
@@ -74,7 +74,7 @@ entries:
       sha: c850a1b
     apiVersion: v2
     appVersion: 0.29.3
-    created: "2021-05-18T11:34:53.568249553Z"
+    created: "2021-05-18T12:21:56.362662579Z"
     description: Wiki application made by Bookstack and MySQL
     digest: 80b79ac1f43e80b503bc6da7554a8538cd68897740c831855b1d4be351f03e45
     maintainers:
@@ -89,7 +89,7 @@ entries:
     version: 1.3.0
   - apiVersion: v2
     appVersion: 0.29.3
-    created: "2021-05-18T11:34:53.564800792Z"
+    created: "2021-05-18T12:21:56.359299942Z"
     description: Wiki application made by Bookstack and MySQL
     digest: 36d579e4042b3bf67fe37e875494002b2f2954b970dff306989ac2f52c64df60
     maintainers:
@@ -104,7 +104,7 @@ entries:
     version: 1.2.2
   - apiVersion: v2
     appVersion: 0.29.3
-    created: "2021-05-18T11:34:53.564465187Z"
+    created: "2021-05-18T12:21:56.358954428Z"
     description: Wiki application made by Bookstack and MySQL
     digest: 9837daaeb487164ce5e16bc950d8967d791a3f72a0af34791140fe5731346fba
     maintainers:
@@ -119,7 +119,7 @@ entries:
     version: 1.2.1
   - apiVersion: v2
     appVersion: 0.29.3
-    created: "2021-05-18T11:34:53.56410418Z"
+    created: "2021-05-18T12:21:56.358638015Z"
     description: Wiki application made by Bookstack and MySQL
     digest: 2bc93f4e46920f94a11a15428a83f37f58988e735049b4f25b08c7f4b9c0a294
     maintainers:
@@ -134,7 +134,7 @@ entries:
     version: 1.2.0
   - apiVersion: v2
     appVersion: 0.29.1
-    created: "2021-05-18T11:34:53.563759774Z"
+    created: "2021-05-18T12:21:56.3582677Z"
     description: Wiki application made by Bookstack and MySQL
     digest: 1ee89f5a024b666092f6a2f530302f79f7f0902059c70e6cfb48314c2107e743
     maintainers:
@@ -149,7 +149,7 @@ entries:
     version: 1.1.0
   - apiVersion: v2
     appVersion: 0.27.5
-    created: "2021-05-18T11:34:53.563392268Z"
+    created: "2021-05-18T12:21:56.357775881Z"
     description: Wiki application made by Bookstack and MySQL
     digest: dfa532a4b5753d58c2633685fef34f534ce26ce8b4900f231fbd8b3836865bb8
     maintainers:
@@ -164,7 +164,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: 0.27.5
-    created: "2021-05-18T11:34:53.563048562Z"
+    created: "2021-05-18T12:21:56.357458368Z"
     description: Wiki application made by Bookstack and MySQL
     digest: 46c3ca1cf4bb7101537d8b01b0b9d14fbe02fba9913673d78c6a987a4ae3b60d
     maintainers:
@@ -178,7 +178,7 @@ entries:
   cert-manager:
   - apiVersion: v2
     appVersion: 0.14.2
-    created: "2021-05-18T11:34:53.585124951Z"
+    created: "2021-05-18T12:21:56.380856416Z"
     dependencies:
     - name: cert-manager
       repository: https://charts.jetstack.io
@@ -196,9 +196,26 @@ entries:
     - cert-manager-0.14.2.tgz
     version: 0.14.2
   cluster-issuer:
+  - annotations:
+      sha: 019e950
+    apiVersion: v2
+    appVersion: 1.1.1
+    created: "2021-05-18T12:21:56.40586043Z"
+    description: ClusterIssuer of Jetstack's cert-manager
+    digest: d0b3d24f41fc666b79ac66bed12eafe806877a2e0c1b5c5476c30074770e0e99
+    maintainers:
+    - email: pacroy@gmail.com
+      name: Par
+    name: cluster-issuer
+    sources:
+    - https://github.com/pacroy/cluster-issuer
+    type: application
+    urls:
+    - cluster-issuer-2.0.0.tgz
+    version: 2.0.0
   - apiVersion: v2
     appVersion: 1.1.1
-    created: "2021-05-18T11:34:53.585861364Z"
+    created: "2021-05-18T12:21:56.381792254Z"
     description: ClusterIssuer of Jetstack's cert-manager
     digest: 300114a0960e638c5efaf07539a0d4c2a821112667ab56f17d74ba76fce1c88e
     maintainers:
@@ -213,7 +230,7 @@ entries:
     version: 1.1.1
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2021-05-18T11:34:53.58564826Z"
+    created: "2021-05-18T12:21:56.381538644Z"
     description: ClusterIssuer of Jetstack's cert-manager
     digest: 859e106cc4c8ab160f6c74c2dd6ec23ad71b80b6c6ef11fa77d777f069d2763c
     maintainers:
@@ -228,7 +245,7 @@ entries:
     version: 1.1.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2021-05-18T11:34:53.585370255Z"
+    created: "2021-05-18T12:21:56.381282934Z"
     description: ClusterIssuer of Jetstack's cert-manager
     digest: c667c4e1d7ba14a19c2a15db642daf7b2a43e1a90d728cb848f021a862d883af
     maintainers:
@@ -244,7 +261,7 @@ entries:
   nginx-redirect:
   - apiVersion: v2
     appVersion: 1.17.0
-    created: "2021-05-18T11:34:53.587996801Z"
+    created: "2021-05-18T12:21:56.408447135Z"
     description: Simple Redirector with nginx
     digest: 522194e27c4553b128b9f9301e059f96b9f63a34676e36a09e5a701ee681f907
     maintainers:
@@ -259,7 +276,7 @@ entries:
     version: 1.4.0
   - apiVersion: v2
     appVersion: 1.17.0
-    created: "2021-05-18T11:34:53.587689596Z"
+    created: "2021-05-18T12:21:56.408013718Z"
     description: Simple Redirector with nginx
     digest: 45b51d4e5d0598088f1d0dce5edb675a2f7c8b9f546ca5831f5bc88dd65f6a7b
     maintainers:
@@ -274,7 +291,7 @@ entries:
     version: 1.3.0
   - apiVersion: v2
     appVersion: 1.17.0
-    created: "2021-05-18T11:34:53.587313589Z"
+    created: "2021-05-18T12:21:56.407690904Z"
     description: Simple Redirector with nginx
     digest: 52375448fe41286ade969d587155da448484198aeaa3f5d96e47398c7f43d07e
     maintainers:
@@ -289,7 +306,7 @@ entries:
     version: 1.2.0
   - apiVersion: v2
     appVersion: 1.17.0
-    created: "2021-05-18T11:34:53.587044684Z"
+    created: "2021-05-18T12:21:56.407379192Z"
     description: Simple Redirector with nginx
     digest: 92f28e459b69aea655f17a5fff7d62c97a9490672106f1d2f891ba4aa055c747
     maintainers:
@@ -304,7 +321,7 @@ entries:
     version: 1.1.2
   - apiVersion: v2
     appVersion: 1.17.0
-    created: "2021-05-18T11:34:53.586760379Z"
+    created: "2021-05-18T12:21:56.407000276Z"
     description: Simple Redirector with nginx
     digest: 0b838b982559d487a0467e8adfa48e59217d4d677a7b69c15fb0f3454d71c2f6
     maintainers:
@@ -319,7 +336,7 @@ entries:
     version: 1.1.1
   - apiVersion: v2
     appVersion: 1.17.0
-    created: "2021-05-18T11:34:53.586380073Z"
+    created: "2021-05-18T12:21:56.40659306Z"
     description: Simple Redirector with nginx
     digest: 737f4762912df33ff87e1d73d335d8d28a6f25959d1c2913080474fc286cbd77
     maintainers:
@@ -334,7 +351,7 @@ entries:
     version: 1.1.0
   - apiVersion: v2
     appVersion: 1.17.0
-    created: "2021-05-18T11:34:53.586115968Z"
+    created: "2021-05-18T12:21:56.406276747Z"
     description: Simple Redirector with nginx
     digest: bced76a7bf86ad7e249227e4357343ddc1ca5100f767acdcfc0803b6458d3020
     maintainers:
@@ -350,7 +367,7 @@ entries:
   nginx-redirect-banner:
   - apiVersion: v2
     appVersion: "1.18"
-    created: "2021-05-18T11:34:53.588388008Z"
+    created: "2021-05-18T12:21:56.408905454Z"
     description: Simple redirect banner with nginx
     digest: 1c7d39e359fc9bd77c15cf916728922895b7290624e2eb5b606ac1645d45a8dc
     maintainers:
@@ -366,7 +383,7 @@ entries:
   rocketchat:
   - apiVersion: v2
     appVersion: 3.3.3
-    created: "2021-05-18T11:34:53.589941635Z"
+    created: "2021-05-18T12:21:56.410083001Z"
     description: Rocket.Chat
     digest: 6525ffca19b9dca0c018f956f5bea7385a584c3ae8250f96636c681a27c740b5
     maintainers:
@@ -381,7 +398,7 @@ entries:
     version: 1.2.1
   - apiVersion: v2
     appVersion: 3.3.3
-    created: "2021-05-18T11:34:53.58962643Z"
+    created: "2021-05-18T12:21:56.40979569Z"
     description: Rocket.Chat
     digest: 8b331cc5c1fb5cc00a3b7e033fc111ee03d10d04ebdaeb55614330faa0036e99
     maintainers:
@@ -396,7 +413,7 @@ entries:
     version: 1.2.0
   - apiVersion: v2
     appVersion: 3.2.2
-    created: "2021-05-18T11:34:53.589290824Z"
+    created: "2021-05-18T12:21:56.409505378Z"
     description: Rocket.Chat
     digest: a2ae5178211b9916f23e8e5d37d5d1b3bf9e709c4c1aa841da0fc30ad562a4d4
     maintainers:
@@ -411,7 +428,7 @@ entries:
     version: 1.1.0
   - apiVersion: v2
     appVersion: 3.1.1
-    created: "2021-05-18T11:34:53.588957018Z"
+    created: "2021-05-18T12:21:56.409208066Z"
     description: Rocket.Chat
     digest: d9d2cc1c3cf4742076306df3ff15f86f03001fb8af344154ea18c78304a7ee6f
     maintainers:
@@ -427,7 +444,7 @@ entries:
   squid:
   - apiVersion: v1
     appVersion: 0.2.3
-    created: "2021-05-18T11:34:53.590534746Z"
+    created: "2021-05-18T12:21:56.410722327Z"
     description: A Helm chart for Kubernetes
     digest: e8f3ab9df169a2e3608aabed3087176a745ee4a1e2766879c24f07df2c2cfd33
     home: https://github.com/pacroy/squid
@@ -443,4 +460,4 @@ entries:
     urls:
     - squid-0.1.0.tgz
     version: 0.1.0
-generated: "2021-05-18T11:34:53.546746874Z"
+generated: "2021-05-18T12:21:56.341550223Z"
