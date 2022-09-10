@@ -14,3 +14,13 @@ helm repo list
 helm package [CHART_PATH]
 helm repo index .
 ```
+
+## Other Helm Repos
+
+```console
+NAME            URL                                       
+ingress-nginx   https://kubernetes.github.io/ingress-nginx
+jetstack        https://charts.jetstack.io                
+pacroy          https://pacroy.github.io/helm-repo        
+stable          https://charts.helm.sh/stable
+```
