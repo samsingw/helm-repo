@@ -1,0 +1,23 @@
+# configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: init-db-script
+  namespace: {{ .Release.Namespace }}
+data:
+  create-db.sh: |
+    #!/bin/bash
+    mysql -h ${DB_HOST} -u ${DB_USERNAME} -p${DB_PASSWORD} -e "CREATE DATABASE IF NOT EXISTS ${DB_DATABASE};"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: init-app-key-script
+  namespace: {{ .Release.Namespace }}
+data:
+  generate-app-key.sh: |
+    #!/bin/bash
+    if [ -z "${APP_KEY}" ]; then
+      export APP_KEY=$(php artisan key:generate --show)
+      echo "Generated APP_KEY: ${APP_KEY}"
+    fi
