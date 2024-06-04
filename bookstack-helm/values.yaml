@@ -1,16 +1,42 @@
-# appHost: www.yourwiki.com
-# appKey: thisIsAppKey
-# allowHttp: false
-# azuread:
-#     enabled: true
-#     tenantId: 5a5e106e-7166-11ea-bc55-0242ac130003
-#     appId: 6667181a-7166-11ea-bc55-0242ac130003
-#     appSecret: thisIsSecret
-# smtp:
-#     enabled: true
-#     host: smtp.yourwiki.com
-#     port: "25"
-#     username: user
-#     password: thisIsPassword
-#     fromAddress: do_not_reply@yourwiki.com
-#     fromName: "My Wiki"
+# values.yaml
+
+# General configuration
+appKey: ""
+appHost: "bookstack.yourdomain.com"  # Replace with your DNS name
+
+# MariaDB configuration
+mariadb:
+  namespace: "mariadb-namespace"
+  host: "mariadb-instance"
+  port: 3306
+  rootUser: "root"
+  rootPassword: "yourRootPasswordHere"
+  database: "bookstack"
+  username: "bookstack"
+  password: "yourMariaDBPasswordHere"
+
+# Storage configuration
+storageType: "local_secure"
+
+# Persistent volume claims
+persistence:
+  uploads:
+    enabled: true
+    storageClass: "longhorn"
+    accessMode: "ReadWriteOnce"
+    size: "10Gi"
+  storage:
+    enabled: true
+    storageClass: "longhorn"
+    accessMode: "ReadWriteOnce"
+    size: "10Gi"
+
+# SMTP configuration (optional)
+smtp:
+  enabled: false
+  host: ""
+  port: 587
+  username: ""
+  password: ""
+  fromAddress: ""
+  fromName: ""
