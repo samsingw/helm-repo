@@ -5,9 +5,9 @@ entries:
       sha: 67c139c
     apiVersion: v2
     appVersion: "23.12"
-    created: "2024-06-04T18:32:17.483581819+02:00"
+    created: "2024-06-14T09:46:10.466294974+02:00"
     description: Wiki application made by Bookstack and Mariadb-Galera Cluster
-    digest: f4e57f0344b02cd34e408e5500fbe9eb8261e5e1cca88e8288557164c5cdd36d
+    digest: edcab45fd223433309ca99e35741d67347b166080d90c44a549f711d4b2f8024
     maintainers:
     - email: saw@samsinger.at
       name: saw
@@ -16,13 +16,13 @@ entries:
     - https://github.com/samsingw/bookstack-helm
     type: application
     urls:
-    - https://github.com/samsingw/helm-repo/bookstack-1.9.1.tgz
+    - https://samsingw.github.io/helm-repo/bookstack-1.9.1.tgz
     version: 1.9.1
   - annotations:
       sha: 67c139c
     apiVersion: v2
     appVersion: "23.12"
-    created: "2024-06-04T18:32:17.483468217+02:00"
+    created: "2024-06-14T09:46:10.465866093+02:00"
     description: Wiki application made by Bookstack and MySQL
     digest: 715ce0662af0ec6e99a4486b90608c8d3f3ac2db4f38fc52d0f7a8de6d9bcadf
     maintainers:
@@ -33,6 +33,17 @@ entries:
     - https://github.com/pacroy/bookstack-helm
     type: application
     urls:
-    - https://github.com/samsingw/helm-repo/bookstack-1.9.0.tgz
+    - https://samsingw.github.io/helm-repo/bookstack-1.9.0.tgz
     version: 1.9.0
-generated: "2024-06-04T18:32:17.483006143+02:00"
+  deconz:
+  - apiVersion: v2
+    appVersion: 0.9.1
+    created: "2024-06-14T09:46:10.466580066+02:00"
+    description: A Helm chart for Kubernetes
+    digest: b94efc16b77db4727dffcb2962fd85165d5321ab395cbb39014633eb97329f4b
+    name: deconz
+    type: application
+    urls:
+    - https://samsingw.github.io/helm-repo/deconz-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-06-14T09:46:10.465433025+02:00"
