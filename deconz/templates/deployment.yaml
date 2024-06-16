@@ -5,52 +5,34 @@ metadata:
   labels:
     {{- include "deconz.labels" . | nindent 4 }}
 spec:
-  {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
-  {{- end }}
   selector:
     matchLabels:
       {{- include "deconz.selectorLabels" . | nindent 6 }}
   template:
     metadata:
-      {{- with .Values.podAnnotations }}
-      annotations:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
       labels:
-        {{- include "deconz.labels" . | nindent 8 }}
-        {{- with .Values.podLabels }}
-        {{- toYaml . | nindent 8 }}
-        {{- end }}
+        {{- include "deconz.selectorLabels" . | nindent 8 }}
     spec:
-      {{- with .Values.imagePullSecrets }}
-      imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      serviceAccountName: {{ include "deconz.serviceAccountName" . }}
-      securityContext:
-        {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}
-          securityContext:
-            {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: TZ
-              value: {{ .Values.env.TZ }}
+              value: "{{ .Values.env.TZ }}"
             - name: DECONZ_DEVICE
-              value: {{ .Values.env.DECONZ_DEVICE }}
+              value: "{{ .Values.env.DECONZ_DEVICE }}"
             - name: DECONZ_VNC_MODE
-              value: {{ .Values.env.DECONZ_VNC_MODE }}
+              value: "{{ .Values.env.DECONZ_VNC_MODE }}"
             - name: DECONZ_WEB_PORT
-              value: {{ .Values.env.DECONZ_WEB_PORT }}
+              value: "{{ .Values.env.DECONZ_WEB_PORT }}"
             - name: DECONZ_WS_PORT
-              value: {{ .Values.env.DECONZ_WS_PORT }}
+              value: "{{ .Values.env.DECONZ_WS_PORT }}"
             - name: DECONZ_VNC_PORT
-              value: {{ .Values.env.DECONZ_VNC_PORT }}
+              value: "{{ .Values.env.DECONZ_VNC_PORT }}"
             - name: USBIP_DEVICE
-              value: {{ .Values.env.USBIP_DEVICE }}
+              value: "{{ .Values.env.USBIP_DEVICE }}"
           ports:
             - name: http
               containerPort: {{ .Values.env.DECONZ_WEB_PORT }}
@@ -58,29 +40,3 @@ spec:
               containerPort: {{ .Values.env.DECONZ_WS_PORT }}
             - name: vnc
               containerPort: {{ .Values.env.DECONZ_VNC_PORT }}
-          livenessProbe:
-            {{- toYaml .Values.livenessProbe | nindent 12 }}
-          readinessProbe:
-            {{- toYaml .Values.readinessProbe | nindent 12 }}
-          resources:
-            {{- toYaml .Values.resources | nindent 12 }}
-          {{- with .Values.volumeMounts }}
-          volumeMounts:
-            {{- toYaml . | nindent 12 }}
-          {{- end }}
-      {{- with .Values.volumes }}
-      volumes:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      {{- with .Values.nodeSelector }}
-      nodeSelector:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      {{- with .Values.affinity }}
-      affinity:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      {{- with .Values.tolerations }}
-      tolerations:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}

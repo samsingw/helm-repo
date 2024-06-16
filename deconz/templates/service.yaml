@@ -4,6 +4,7 @@ metadata:
   name: {{ include "deconz.fullname" . }}
   labels:
     {{- include "deconz.labels" . | nindent 4 }}
+spec:
   type: {{ .Values.service.type }}
   ports:
     - name: http
