@@ -5,7 +5,7 @@ entries:
       sha: 67c139c
     apiVersion: v2
     appVersion: "23.12"
-    created: "2024-06-14T09:46:10.466294974+02:00"
+    created: "2024-06-16T13:58:51.252839076+02:00"
     description: Wiki application made by Bookstack and Mariadb-Galera Cluster
     digest: edcab45fd223433309ca99e35741d67347b166080d90c44a549f711d4b2f8024
     maintainers:
@@ -22,7 +22,7 @@ entries:
       sha: 67c139c
     apiVersion: v2
     appVersion: "23.12"
-    created: "2024-06-14T09:46:10.465866093+02:00"
+    created: "2024-06-16T13:58:51.252472873+02:00"
     description: Wiki application made by Bookstack and MySQL
     digest: 715ce0662af0ec6e99a4486b90608c8d3f3ac2db4f38fc52d0f7a8de6d9bcadf
     maintainers:
@@ -38,12 +38,12 @@ entries:
   deconz:
   - apiVersion: v2
     appVersion: 0.9.1
-    created: "2024-06-14T09:46:10.466580066+02:00"
+    created: "2024-06-16T13:58:51.253059528+02:00"
     description: A Helm chart for Kubernetes
-    digest: b94efc16b77db4727dffcb2962fd85165d5321ab395cbb39014633eb97329f4b
+    digest: b939af96b5bf03633f49c34071d310ec7882c092860e71cbcae3d02f1668c5ca
     name: deconz
     type: application
     urls:
     - https://samsingw.github.io/helm-repo/deconz-0.1.0.tgz
     version: 0.1.0
-generated: "2024-06-14T09:46:10.465433025+02:00"
+generated: "2024-06-16T13:58:51.251709788+02:00"
