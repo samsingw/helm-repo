@@ -1,107 +1,95 @@
-# Default values for deconz.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
 
-replicaCount: 1
+#
+# IMPORTANT NOTE
+#
+# This chart inherits from our common library chart. You can check the default values/options here:
+# https://github.com/k8s-at-home/library-charts/tree/main/charts/stable/common/values.yaml
+#
 
 image:
+  # -- image repository
   repository: sawsaw/deconz-usbip
+    # -- image tag
+  tag: latest
+  # -- image pull policy
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
 
-imagePullSecrets: []
-nameOverride: ""
-fullnameOverride: ""
-
-serviceAccount:
-  # Specifies whether a service account should be created
-  create: true
-  # Automatically mount a ServiceAccount's API credentials?
-  automount: true
-  # Annotations to add to the service account
-  annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
-  name: ""
-
-podAnnotations: {}
-podLabels: {}
-
-podSecurityContext: {}
-  # fsGroup: 2000
-
-securityContext: {}
-  # capabilities:
-  #   drop:
-  #   - ALL
-  # readOnlyRootFilesystem: true
-  # runAsNonRoot: true
-  # runAsUser: 1000
-
+# -- environment variables. See [image docs](https://github.com/marthoc/docker-deconz/blob/master/README.md) for more details.
+# @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: UTC
+  # -- Override the location where deCONZ looks for the RaspBee/Conbee device.
+  DECONZ_DEVICE:  # /dev/ttyUSB0
+  # -- Enable VNC access to the container to view the deCONZ ZigBee mesh
+  DECONZ_VNC_MODE: 1
+  # -- Web UI listen port
+  DECONZ_WEB_PORT: 80
+  # -- Websocket listen port
+  DECONZ_WS_PORT: 443
+  # -- VNC server listen port
+  DECONZ_VNC_PORT: 5900
+  # -- If VNC is enabled (DECONZ_VNC_MODE=1) you can change the default password "changeme" using a Secret.
+  DECONZ_VNC_PASSWORD:
+    # secretKeyRef:
+    #   name: deconz-vnc-password
+    #   key: password
+  USBIP_DEVICE: # IP:VENDOR:DEVICE e.g. 192.168.1.1:0403:6015
+    
+# -- Configures service settings for the chart.
+# @default -- See values.yaml
 service:
-  type: ClusterIP
-  port: 80
+  main:
+    ports:
+      http:
+        port: 80
+      websocket:
+        enabled: true
+        port: 443
+      vnc:
+        enabled: true
+        port: 5900
 
 ingress:
-  enabled: false
-  className: ""
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
-  hosts:
-    - host: chart-example.local
-      paths:
-        - path: /
-          pathType: ImplementationSpecific
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
+  # -- Enable and configure ingress settings for the chart under this key.
+  # @default -- See values.yaml
+  main:
+    enabled: true
+  # General configuration
+  apphost: phoscon.ankhmorpork.dw
+  tls:
+    enabled: true
+    secretName: "deconz-tls"
+    issuer-name: "selfsigned-issuer"
+    issuerKind: "ClusterIssuer"
 
-resources: {}
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  # limits:
-  #   cpu: 100m
-  #   memory: 128Mi
-  # requests:
-  #   cpu: 100m
-  #   memory: 128Mi
+securityContext:
+  # -- (bool) Privileged securityContext may be required if USB controller is accessed directly through the host machine
+  privileged:  # true
 
-livenessProbe:
-  httpGet:
-    path: /
-    port: http
-readinessProbe:
-  httpGet:
-    path: /
-    port: http
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  config:
+    enabled: false
+    mountPath: /opt/deCONZ
+  # -- Configure a hostPathMount to mount a USB device in the container.
+  # @default -- See values.yaml
+  usb:
+    enabled: false
+    type: hostPath
+    hostPath: /dev/serial/by-id/usb-dresden_elektronik_ingenieurtechnik_GmbH_ConBee_II_DE2400981-if00
+    mountPath: /dev/ttyUSB0
 
-autoscaling:
-  enabled: false
-  minReplicas: 1
-  maxReplicas: 100
-  targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
-
-# Additional volumes on the output Deployment definition.
-volumes: []
-# - name: foo
-#   secret:
-#     secretName: mysecret
-#     optional: false
-
-# Additional volumeMounts on the output Deployment definition.
-volumeMounts: []
-# - name: foo
-#   mountPath: "/etc/foo"
-#   readOnly: true
-
-nodeSelector: {}
-
-tolerations: []
-
+# -- Affinity constraint rules to place the Pod on a specific node.
+# [[ref]](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity)
 affinity: {}
+#   nodeAffinity:
+#     requiredDuringSchedulingIgnoredDuringExecution:
+#       nodeSelectorTerms:
+#       - matchExpressions:
+#         - key: app
+#           operator: In
+#           values:
+#           - zigbee-controller
+
