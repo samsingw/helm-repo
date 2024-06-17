@@ -5,7 +5,7 @@ entries:
       sha: 67c139c
     apiVersion: v2
     appVersion: "23.12"
-    created: "2024-06-17T18:24:18.119480039+02:00"
+    created: "2024-06-17T18:34:48.308857751+02:00"
     description: Wiki application made by Bookstack and Mariadb-Galera Cluster
     digest: edcab45fd223433309ca99e35741d67347b166080d90c44a549f711d4b2f8024
     maintainers:
@@ -22,7 +22,7 @@ entries:
       sha: 67c139c
     apiVersion: v2
     appVersion: "23.12"
-    created: "2024-06-17T18:24:18.119066957+02:00"
+    created: "2024-06-17T18:34:48.308653509+02:00"
     description: Wiki application made by Bookstack and MySQL
     digest: 715ce0662af0ec6e99a4486b90608c8d3f3ac2db4f38fc52d0f7a8de6d9bcadf
     maintainers:
@@ -38,9 +38,9 @@ entries:
   deconz:
   - apiVersion: v2
     appVersion: 0.9.5
-    created: "2024-06-17T18:24:18.120695078+02:00"
+    created: "2024-06-17T18:34:48.309621988+02:00"
     description: A Helm chart for Kubernetes
-    digest: ba14e403462f6612cde4c97da10831c361f35d0a7b0d77b77cd36549c5693e90
+    digest: 2fb2cee2af2ca89ff8b0a7e3baef7d76e48476fcfe19f240d5636941ebb74155
     name: deconz
     type: application
     urls:
@@ -48,7 +48,7 @@ entries:
     version: 0.3.1
   - apiVersion: v2
     appVersion: 0.9.3
-    created: "2024-06-17T18:24:18.120445973+02:00"
+    created: "2024-06-17T18:34:48.309394192+02:00"
     description: A Helm chart for Kubernetes
     digest: 8a47459d0e0c58af3fd87b2209addff92f2cd5988692e85ed6a04a304891d578
     name: deconz
@@ -58,7 +58,7 @@ entries:
     version: 0.3.0
   - apiVersion: v2
     appVersion: 0.9.1
-    created: "2024-06-17T18:24:18.119927204+02:00"
+    created: "2024-06-17T18:34:48.309164834+02:00"
     description: A Helm chart for Kubernetes
     digest: 82e769c7cb1402c96b2cede193e9f99d95a2fe2c3cfea3f833cf100ec3f5b917
     name: deconz
@@ -66,4 +66,4 @@ entries:
     urls:
     - https://samsingw.github.io/helm-repo/deconz-0.1.0.tgz
     version: 0.1.0
-generated: "2024-06-17T18:24:18.118625202+02:00"
+generated: "2024-06-17T18:34:48.308410396+02:00"
