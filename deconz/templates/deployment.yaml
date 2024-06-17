@@ -33,6 +33,12 @@ spec:
               value: "{{ .Values.env.DECONZ_VNC_PORT }}"
             - name: USBIP_DEVICE
               value: "{{ .Values.env.USBIP_DEVICE }}"
+            - name: autoscaling
+              value: {{ default "false" .Values.enabled | quote }}
+            - name: serviceAccount
+              value: {{ default "false" .Values.create | quote }}
+            - name: service
+              value: {{ default "ClusterIP" .Values.type |quote }}
           ports:
             - name: http
               containerPort: {{ .Values.env.DECONZ_WEB_PORT }}
