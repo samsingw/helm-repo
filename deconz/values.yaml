@@ -69,7 +69,7 @@ ingress:
 
 securityContext:
   # -- (bool) Privileged securityContext may be required if USB controller is accessed directly through the host machine
-  privileged:  # true
+  privileged: true
 
 # -- Configure persistence settings for the chart under this key.
 # @default -- See values.yaml
@@ -77,10 +77,10 @@ persistence:
   config:
     enabled: true 
     mountPath: /opt/deCONZ
-  sysfs:
-    enabled: true
-    mountpath: /sys
-    readonly: false
+#  sysfs:
+#    enabled: true
+#    mountpath: /sys
+#    readonly: false
   # -- Configure a hostPathMount to mount a USB device in the container.
   # @default -- See values.yaml
   usb:
