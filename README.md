@@ -1,9 +1,18 @@
-# pacroy's Helm repository
+# samsingw  Helm repository
+
+I'm testing, trying and erroing.
+Most content of this repository won't work.
+If somthing, by accident works, it will
+	- destroy your Computer
+	- steal your Cryptos
+	- kill your pets
+	- make Donald Trump lifetime President of the United states.
 
 ## How to Use this Helm Repository
+! Don't use it !
 
 ```sh
-helm repo add pacroy https://pacroy.github.io/helm-repo/
+helm repo add pacroy https://samsingw.github.io/helm-repo/
 helm repo update
 helm repo list
 ```
@@ -13,14 +22,4 @@ helm repo list
 ```sh
 helm package [CHART_PATH]
 helm repo index .
-```
-
-## Other Helm Repos
-
-```console
-NAME            URL                                       
-ingress-nginx   https://kubernetes.github.io/ingress-nginx
-jetstack        https://charts.jetstack.io                
-pacroy          https://pacroy.github.io/helm-repo        
-stable          https://charts.helm.sh/stable
 ```
