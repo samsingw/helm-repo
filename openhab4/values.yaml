@@ -102,7 +102,7 @@ ingress:
               port:
                 number: 8080
   tls:
-    - secretName: openhabe-tls
+    - secretName: openhab-tls
       hosts:
         - openhab.ankhmorpork.dw
       issuer-name: "selfsigned-issuer"
