@@ -1,13 +1,13 @@
 # samsingw  Helm repository
 
-I'm testing, trying and erroing.
-Most content of this repository won't work.
-If somthing, by accident works, it will
-	- destroy your Computer
-	- steal your Cryptos
-	- kill your pets
+I'm testing, trying and erroing.  
+Most content of this repository won't work.  
+If somthing, by accident works, it will  
+	- destroy your Computer  
+	- steal your Cryptos  
+	- kill your pets  
 	- make Donald Trump lifetime President of the United states.
-
+  
 ## How to Use this Helm Repository
 ! Don't use it !
 
