@@ -9,18 +9,26 @@ metadata:
     {{- end }}
 spec:
   rules:
-   - host: {{ .Values.ingress.hosts[0].host }}
+    {{- range .Values.ingress.hosts }}
+    - host: {{ .host | quote }}
       http:
         paths:
-          - path: {{ .Values.ingress.hosts[0].paths[0].path }}
-            pathType: {{ .Values.ingress.hosts[0].paths[0].pathType }}
+          {{- range .paths }}
+          - path: {{ .path | quote }}
+            pathType: {{ .pathType }}
             backend:
               service:
-                name: {{ .Values.ingress.hosts[0].paths[0].backend.service.name }}
+                name: {{ include "your-chart.fullname" $ }}
                 port:
-                  number: {{ .Values.ingress.hosts[0].paths[0].backend.service.port.number }}
+                  number: {{ $.Values.service.main.ports.http.port }}
+          {{- end }}
+    {{- end }}
   tls:
-    - secretName: {{ .Values.ingress.tls[0].secretName }}
+    {{- range .Values.ingress.tls }}
+    - secretName: {{ .secretName | quote }}
       hosts:
-        - {{ .Values.ingress.tls[0].hosts[0] }}
+        {{- range .hosts }}
+        - {{ . | quote }}
+        {{- end }}
+    {{- end }}
 {{- end }}
