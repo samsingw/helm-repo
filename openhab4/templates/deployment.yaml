@@ -30,9 +30,19 @@ spec:
             - name: http
               containerPort: {{ .Values.service.main.ports.http.targetPort }}
           volumeMounts:
-            - name: data
-              mountPath: /openhab
+            - name: addons
+              mountPath: /openhab/addons
+            - name: conf
+              mountPath: /openhab/conf
+            - name: userdata
+              mountPath: /openhab/userdata
       volumes:
-        - name: data
+        - name: addons
           persistentVolumeClaim:
-            claimName: openhab-pvc
+            claimName: openhab-addons-pvc
+        - name: conf
+          persistentVolumeClaim:
+            claimName: openhab-conf-pvc
+        - name: userdata
+          persistentVolumeClaim:
+            claimName: openhab-userdata-pvc
