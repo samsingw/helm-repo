@@ -1,6 +1,6 @@
 # samsingw  Helm repository
 
-I'm testing, trying and erroing.  
+I'm testing, trying and erroring.  
 Most content of this repository won't work.  
 If somthing, by accident works, it will  
 	- destroy your Computer  

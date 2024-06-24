@@ -95,7 +95,12 @@ ingress:
     - host: openhab.ankhmorpork.dw
       paths:
         - path: /
-          pathType: ImplementationSpecific
+          pathType: Prefix
+          backend:
+            service:
+              name: openhab
+              port:
+                number: 8080
   tls:
     - secretName: openhabe-tls
       hosts:
