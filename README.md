@@ -12,7 +12,7 @@ If somthing, by accident works, it will
 ! Don't use it !
 
 ```sh
-helm repo add pacroy https://samsingw.github.io/helm-repo/
+helm repo add samsingw https://samsingw.github.io/helm-repo/
 helm repo update
 helm repo list
 ```
