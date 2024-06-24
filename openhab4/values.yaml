@@ -35,7 +35,9 @@ serviceAccount:
   name: ""
 
 podAnnotations: {}
-podLabels: {}
+podLabels:
+  app.kubernetes.io/instance: openhab
+  app.kubernetes.io/name: openhab4
 
 podSecurityContext: {}
   # fsGroup: 2000
@@ -83,6 +85,9 @@ service:
         enabled: false
         port: 8443
         targetPort: 8443
+    selector:
+      app.kubernetes.io/instance: openhab
+      app.kubernetes.io/name: openhab4
 
 ingress:
   enabled: true
