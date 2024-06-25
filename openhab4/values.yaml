@@ -59,6 +59,7 @@ persistence:
     mountPath: /openhab/conf
   data:
     enabled: true
+    mountPath: /openhab
     subPath:
       - mountPath: /openhab/addons
         path: addons
