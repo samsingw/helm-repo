@@ -5,7 +5,7 @@ entries:
       sha: 67c139c
     apiVersion: v2
     appVersion: "23.12"
-    created: "2024-06-25T09:12:32.511383864+02:00"
+    created: "2024-06-25T10:12:01.577989327+02:00"
     description: Wiki application made by Bookstack and Mariadb-Galera Cluster
     digest: edcab45fd223433309ca99e35741d67347b166080d90c44a549f711d4b2f8024
     maintainers:
@@ -22,7 +22,7 @@ entries:
       sha: 67c139c
     apiVersion: v2
     appVersion: "23.12"
-    created: "2024-06-25T09:12:32.511194639+02:00"
+    created: "2024-06-25T10:12:01.577797007+02:00"
     description: Wiki application made by Bookstack and MySQL
     digest: 715ce0662af0ec6e99a4486b90608c8d3f3ac2db4f38fc52d0f7a8de6d9bcadf
     maintainers:
@@ -38,7 +38,7 @@ entries:
   deconz:
   - apiVersion: v2
     appVersion: 0.9.5
-    created: "2024-06-25T09:12:32.512104094+02:00"
+    created: "2024-06-25T10:12:01.578635606+02:00"
     description: A Helm chart for Kubernetes
     digest: 2fb2cee2af2ca89ff8b0a7e3baef7d76e48476fcfe19f240d5636941ebb74155
     name: deconz
@@ -48,7 +48,7 @@ entries:
     version: 0.3.1
   - apiVersion: v2
     appVersion: 0.9.3
-    created: "2024-06-25T09:12:32.511844157+02:00"
+    created: "2024-06-25T10:12:01.578405846+02:00"
     description: A Helm chart for Kubernetes
     digest: 8a47459d0e0c58af3fd87b2209addff92f2cd5988692e85ed6a04a304891d578
     name: deconz
@@ -58,7 +58,7 @@ entries:
     version: 0.3.0
   - apiVersion: v2
     appVersion: 0.9.1
-    created: "2024-06-25T09:12:32.511636347+02:00"
+    created: "2024-06-25T10:12:01.578208417+02:00"
     description: A Helm chart for Kubernetes
     digest: 82e769c7cb1402c96b2cede193e9f99d95a2fe2c3cfea3f833cf100ec3f5b917
     name: deconz
@@ -69,7 +69,7 @@ entries:
   openhab:
   - apiVersion: v2
     appVersion: 4.1.3
-    created: "2024-06-25T09:12:32.512270576+02:00"
+    created: "2024-06-25T10:12:01.578795806+02:00"
     description: A Helm chart for OpenHAB
     digest: 77374d617e139f52703954d3ff5e9599b51491150775fe3dd55b8be35fb07fb9
     name: openhab
@@ -80,7 +80,18 @@ entries:
   openhab4:
   - apiVersion: v2
     appVersion: 4.1.3
-    created: "2024-06-25T09:12:32.514370995+02:00"
+    created: "2024-06-25T10:12:01.582264555+02:00"
+    description: A Helm chart for Kubernetes
+    digest: d6357ce9fbbc54ef7b0acedc4a5b84c0fdb63a670a6605f242f1d14bf56cc968
+    icon: https://github.com/openhab/openhab-webui/blob/main/logo.svg
+    name: openhab4
+    type: application
+    urls:
+    - openhab4-0.9.15.tgz
+    version: 0.9.15
+  - apiVersion: v2
+    appVersion: 4.1.3
+    created: "2024-06-25T10:12:01.581912817+02:00"
     description: A Helm chart for Kubernetes
     digest: cdd102ae9111f347b7a635109db8f10e8a1bfcb825000c31d8ab95c81e165f06
     icon: https://github.com/openhab/openhab-webui/blob/main/logo.svg
@@ -91,7 +102,7 @@ entries:
     version: 0.9.13
   - apiVersion: v2
     appVersion: 4.1.3
-    created: "2024-06-25T09:12:32.513999388+02:00"
+    created: "2024-06-25T10:12:01.581553244+02:00"
     description: A Helm chart for Kubernetes
     digest: 1e12da03b57bea591e0f8f0b9ba2d67af299748933e72906aca35083c848317d
     name: openhab4
@@ -101,7 +112,7 @@ entries:
     version: 0.9.10
   - apiVersion: v2
     appVersion: 4.1.3
-    created: "2024-06-25T09:12:32.514736861+02:00"
+    created: "2024-06-25T10:12:01.582618507+02:00"
     description: A Helm chart for Kubernetes
     digest: ff61570f9b00c3f2350b8ac55a39e3008e63b4bed26144f2c5b9b8f3f08a4187
     name: openhab4
@@ -111,7 +122,7 @@ entries:
     version: 0.9.9
   - apiVersion: v2
     appVersion: 4.1.3
-    created: "2024-06-25T09:12:32.513631298+02:00"
+    created: "2024-06-25T10:12:01.581175428+02:00"
     description: A Helm chart for Kubernetes
     digest: 4213c9b6e15cab0773b68017bd4179ae1e743e233e5228cbc388405547a9edb9
     name: openhab4
@@ -121,7 +132,7 @@ entries:
     version: 0.9.1
   - apiVersion: v2
     appVersion: 4.1.3
-    created: "2024-06-25T09:12:32.51326485+02:00"
+    created: "2024-06-25T10:12:01.580774107+02:00"
     description: A Helm chart for Kubernetes
     digest: 247332b490e584cbcfe7dda1105ff7687aa9fde46ed7c5bcbac3ac5fe9594dd9
     name: openhab4
@@ -131,7 +142,7 @@ entries:
     version: 0.9.0
   - apiVersion: v2
     appVersion: 4.1.3
-    created: "2024-06-25T09:12:32.51290206+02:00"
+    created: "2024-06-25T10:12:01.580402732+02:00"
     description: A Helm chart for Kubernetes
     digest: a0b0b69c609690ced5c3582f1fddab513d32ebc19c5c470ac5576cab07cf560d
     name: openhab4
@@ -141,7 +152,7 @@ entries:
     version: 0.3.3
   - apiVersion: v2
     appVersion: 4.1.3
-    created: "2024-06-25T09:12:32.51259242+02:00"
+    created: "2024-06-25T10:12:01.579768726+02:00"
     description: A Helm chart for Kubernetes
     digest: b92847a3a60d04e20588ac787abbb317d6470e669b1aed7e0ac223623d192d14
     name: openhab4
@@ -149,4 +160,4 @@ entries:
     urls:
     - openhab4-0.3.1.tgz
     version: 0.3.1
-generated: "2024-06-25T09:12:32.510982301+02:00"
+generated: "2024-06-25T10:12:01.577505782+02:00"
