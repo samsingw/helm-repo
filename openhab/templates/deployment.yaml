@@ -1,40 +1,40 @@
-replicaCount: 1
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "openhab.fullname" . }}
+  labels:
+    {{- include "openhab.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "openhab.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "openhab.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - mountPath: /openhab/conf
+              name: conf
+            - mountPath: /openhab/userdata
+              name: userdata
+            - mountPath: /openhab/addons
+              name: addons
+      volumes:
+        - name: conf
+          persistentVolumeClaim:
+            claimName: {{ include "openhab.fullname" . }}-conf
+        - name: userdata
+          persistentVolumeClaim:
+            claimName: {{ include "openhab.fullname" . }}-userdata
+        - name: addons
+          persistentVolumeClaim:
+            claimName: {{ include "openhab.fullname" . }}-addons
 
-image:
-  repository: openhab/openhab
-  pullPolicy: IfNotPresent
-  tag: "4.1.3"
-
-imagePullSecrets: []
-nameOverride: ""
-fullnameOverride: ""
-
-service:
-  type: ClusterIP
-  port: 8080
-
-ingress:
-  enabled: true
-  annotations:
-    cert-manager.io/cluster-issuer: "self-signed-issuer"
-  hosts:
-    - host: openhab.example.com
-      paths:
-        - path: /
-          pathType: ImplementationSpecific
-  tls:
-    - secretName: openhab-tls
-      hosts:
-        - openhab.example.com
-
-persistence:
-  enabled: true
-  storageClass: longhorn
-  accessModes:
-    - ReadWriteOnce
-  size: 5Gi
-
-resources: {}
-nodeSelector: {}
-tolerations: []
-affinity: {}

@@ -32,15 +32,6 @@ spec:
           volumeMounts:
             - name: data
               mountPath: /openhab
-            - name: addons
-              mountPath: /openhab/addons
-              subPath: addons
-            - name: conf
-              mountPath: /openhab/conf
-              subPath: conf
-            - name: userdata
-              mountPath: /openhab/userdata
-              subPath: userdata
       volumes:
         - name: data
           persistentVolumeClaim:

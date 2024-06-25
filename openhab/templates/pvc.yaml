@@ -1,34 +1,45 @@
-{{- if .Values.ingress.enabled -}}
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: v1
+kind: PersistentVolumeClaim
 metadata:
-  name: {{ include "openhab.fullname" . }}
-  annotations:
-    {{- range $key, $value := .Values.ingress.annotations }}
-    {{ $key }}: {{ $value | quote }}
-    {{- end }}
+  name: {{ include "openhab.fullname" . }}-conf
+  labels:
+    {{- include "openhab.labels" . | nindent 4 }}
 spec:
-  rules:
-    {{- range .Values.ingress.hosts }}
-    - host: {{ .host | quote }}
-      http:
-        paths:
-          {{- range .paths }}
-          - path: {{ .path }}
-            pathType: {{ .pathType }}
-            backend:
-              service:
-                name: {{ include "openhab.fullname" $root }}
-                port:
-                  number: {{ $root.Values.service.port }}
-          {{- end }}
-    {{- end }}
-  tls:
-    {{- range .Values.ingress.tls }}
-    - secretName: {{ .secretName }}
-      hosts:
-        {{- range .hosts }}
-        - {{ . | quote }}
-        {{- end }}
-    {{- end }}
-{{- end }}
+  accessModes:
+    - {{ .Values.persistence.accessModes | join "," }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.size }}
+  storageClassName: {{ .Values.persistence.storageClass }}
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "openhab.fullname" . }}-userdata
+  labels:
+    {{- include "openhab.labels" . | nindent 4 }}
+spec:
+  accessModes:
+    - {{ .Values.persistence.accessModes | join "," }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.size }}
+  storageClassName: {{ .Values.persistence.storageClass }}
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "openhab.fullname" . }}-addons
+  labels:
+    {{- include "openhab.labels" . | nindent 4 }}
+spec:
+  accessModes:
+    - {{ .Values.persistence.accessModes | join "," }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.size }}
+  storageClassName: {{ .Values.persistence.storageClass }}
