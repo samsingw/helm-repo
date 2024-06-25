@@ -70,9 +70,6 @@ persistence:
     retain: true
     size: 5Gi
     storageClass: longhorn
-  userdata:
-    enabled: false
-    mountpath: /openhab/userdata
 
 service:
   main:
