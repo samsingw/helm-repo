@@ -41,6 +41,12 @@ if ! id -u openhab >/dev/null 2>&1; then
     echo "Rename group $group_name to openhab"
     groupmod --new-name openhab $group_name
   fi
+  echo "set permissions for   OPENHAB_HOME if exists"
+  if [ -d $OPENHAB_HOME ]; then
+    chown --R $NEW_USER_ID:$NEW_GROUP_ID "${OPENHAB_HOME}"
+    chmod 755  "${OPENHAB_HOME}"
+    ls -ld  "${OPENHAB_HOME}"
+  fi
   echo "Create user openhab with id ${NEW_USER_ID}"
   adduser -u $NEW_USER_ID --disabled-password --gecos '' --home "${OPENHAB_HOME}" --gid $NEW_GROUP_ID openhab
   groupadd -g 11 audio2
