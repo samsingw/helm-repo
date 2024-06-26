@@ -22,4 +22,4 @@ version: 0.1.1
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
 appVersion: "4.1.3"
-icon: https://openhab.org/images/openhab-logo.svg
+icon: https://v2.openhab.org/openhab-logo-square.png
