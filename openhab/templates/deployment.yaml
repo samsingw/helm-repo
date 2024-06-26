@@ -1,3 +1,4 @@
+# openhab/templates/deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -36,29 +37,18 @@ spec:
               value: {{ .value | quote }}
             {{- end }}
           volumeMounts:
-            {{- range .Values.volumeMounts }}
-            - name: {{ .name }}
+            {{- if .Values.persistence.data.enabled }}
+            - name: data
+              mountPath: {{ .Values.persistence.data.mountPath }}
+              {{- range .Values.persistence.data.subPath }}
+            - name: data
               mountPath: {{ .mountPath }}
-              readOnly: {{ .readOnly | default false }}
+              subPath: {{ .path }}
+              {{- end }}
             {{- end }}
       volumes:
-        {{- range .Values.volumes }}
-        - name: {{ .name }}
-          {{- if .hostPath }}
-          hostPath:
-            path: {{ .hostPath.path }}
-          {{- end }}
-          {{- if .configMap }}
-          configMap:
-            name: {{ .configMap.name }}
-            items:
-              {{- range .configMap.items }}
-              - key: {{ .key }}
-                path: {{ .path }}
-              {{- end }}
-          {{- end }}
-          {{- if .secret }}
-          secret:
-            secretName: {{ .secret.secretName }}
-          {{- end }}
+        {{- if .Values.persistence.data.enabled }}
+        - name: data
+          persistentVolumeClaim:
+            claimName: {{ include "openhab.fullname" . }}
         {{- end }}

@@ -49,10 +49,10 @@ persistence:
         path: conf
       - mountPath: /openhab/userdata
         path: userdata
-    accessModes: ReadWriteMany
-    retain: true
-    size: 5Gi
-    storageClass: longhorn
+  accessModes: ["ReadWriteMany"]
+  retain: true
+  size: 5Gi
+  storageClass: longhorn
 
 ingress:
   enabled: true
