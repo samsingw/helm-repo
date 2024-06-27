@@ -25,6 +25,7 @@ spec:
             - sh
             - -c
             - |
+              mkdir -p {{ .Values.persistence.data.mountPath }} && \
               chown -R {{ .Values.user.id }}:{{ .Values.user.group }} {{ .Values.persistence.data.mountPath }} \ 
               chmod 755 {{ .Values.persistence.data.mountPath }}
           volumeMounts:
