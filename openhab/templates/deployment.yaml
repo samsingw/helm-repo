@@ -18,6 +18,18 @@ spec:
       serviceAccountName: {{ include "openhab.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      initContainers:
+        - name: init-permissions
+          image: busybox
+          command:
+            - sh
+            - -c
+            - |
+              chown -R {{ .Values.user.id }}:{{ .Values.user.group }} {{ .Values.persistence.data.mountPath }} \ 
+              chmod 755 {{ .Values.persistence.data.mountPath }}
+          volumeMounts:
+            - name: data
+              mountPath: {{ .Values.persistence.data.mountPath }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -52,3 +64,4 @@ spec:
           persistentVolumeClaim:
             claimName: {{ include "openhab.fullname" . }}
         {{- end }}
+

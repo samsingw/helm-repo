@@ -77,6 +77,10 @@ ingress:
       hosts:
         - openhab.ankhmorpork.dw
 
+user:
+  id: "9001"
+  group: "9001"
+  
 extraEnv:
   - name: CRYPTO_POLICY
     value: "unlimited"
@@ -86,6 +90,10 @@ extraEnv:
     value: "8080"
   - name: OPENHAB_HTTPS_PORT
     value: "8443"
+  - name: OH_USER_ID
+    value: "9001"
+  - name: OH_GROUP_ID
+    value: "9001"   
 
 serviceAccount:
   create: true
