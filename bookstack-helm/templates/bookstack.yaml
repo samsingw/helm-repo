@@ -80,6 +80,8 @@ spec:
           value: "true"
         - name: STORAGE_TYPE
           value: {{ default "local_secure" .Values.storageType | quote }}
+        - name: FILE_UPLOAD_SIZE_LIMIT
+          value: {{ .Values.env.FILE_UPLOAD_SIZE_LIMIT | quote }}
           {{- if .Values.smtp }}
           {{- if .Values.smtp.enabled }}
         - name: MAIL_HOST
@@ -113,6 +115,10 @@ spec:
           name: bookstack-uploads
         - mountPath: /var/www/bookstack/storage/uploads
           name: bookstack-storage
+        - mountPath: /usr/local/etc/php/conf.d
+          name: php-ini-override
+        - mountPath: /etc/nginx/conf.d
+          name: nginx-conf-override
       volumes:
       - name: bookstack-uploads
         persistentVolumeClaim:
@@ -120,9 +126,41 @@ spec:
       - name: bookstack-storage
         persistentVolumeClaim:
           claimName: {{ printf "%s-%s" .Release.Name "storage" }}
+      - name: php-ini-override
+        persistentVolumeClaim:
+          claimName: {{ printf "%s-%s" .Release.Name "phpini" }}
+      - name: nginx-conf-override
+        persistentVolumeClaim:
+          claimName: {{ printf "%s-%s" .Release.Name "nginxconf" }}
       - name: init-app-key-script
         configMap:
           name: init-app-key-script
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ printf "%s-%s" .Release.Name "phpini" }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  accessModes:
+    - {{ .Values.persistence.phpIniOverride.accessMode }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.phpIniOverride.size }}
+  storageClassName: {{ .Values.persistence.phpIniOverride.storageClass }}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ printf "%s-%s" .Release.Name "nginxconf" }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  accessModes:
+    - {{ .Values.persistence.nginxConfOverride.accessMode }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.nginxConfOverride.size }}
+  storageClassName: {{ .Values.persistence.nginxConfOverride.storageClass }}
 ---
 apiVersion: v1
 kind: Secret

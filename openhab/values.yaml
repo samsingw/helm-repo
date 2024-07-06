@@ -15,6 +15,14 @@ service:
       port: 8443
       targetPort: 8443
 
+persistence:
+  enabled: true
+  accessModes: 
+    - ReadWriteOnce
+  size: 5Gi
+  annotations: {}
+  storageClass: "longhorn"
+
 volumeMounts:
   - name: localtime
     mountPath: /etc/localtime
@@ -22,6 +30,12 @@ volumeMounts:
   - name: timezone
     mountPath: /etc/timezone
     readOnly: true
+  - name: openhab-addons
+    mountPath: /openhab/addons
+  - name: openhab-conf
+    mountPath: /openhab/conf
+  - name: openhab-userdata
+    mountPath: /openhab/userdata
 
 volumes:
   - name: localtime
@@ -30,29 +44,15 @@ volumes:
   - name: timezone
     hostPath:
       path: /etc/timezone
-
-persistence:
-  enabled: true
-  addons:
-    enabled: false
-    mountPath: /openhab/addons
-  conf:
-    enabled: false
-    mountPath: /openhab/conf
-  data:
-    enabled: true
-    mountPath: /openhab
-    subPath:
-      - mountPath: /openhab/addons
-        path: addons
-      - mountPath: /openhab/conf
-        path: conf
-      - mountPath: /openhab/userdata
-        path: userdata
-  accessModes: ["ReadWriteMany"]
-  retain: true
-  size: 5Gi
-  storageClass: longhorn
+  - name: openhab-addons
+    persistentVolumeClaim:
+      claimName: openhab-addons-pvc
+  - name: openhab-conf
+    persistentVolumeClaim:
+      claimName: openhab-conf-pvc
+  - name: openhab-userdata
+    persistentVolumeClaim:
+      claimName: openhab-userdata-pvc
 
 ingress:
   enabled: true
@@ -80,7 +80,7 @@ ingress:
 user:
   id: "9001"
   group: "9001"
-  
+
 extraEnv:
   - name: CRYPTO_POLICY
     value: "unlimited"

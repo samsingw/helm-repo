@@ -2,7 +2,7 @@
 
 # General configuration
 appKey: ""
-appHost: "bookstack.ankhmorpork.dw"  # Replace with your DNS name
+appHost: "bookstack.yourdomain.com"  # Replace with your DNS name
 
 # MariaDB configuration
 mariadb:
@@ -30,20 +30,6 @@ persistence:
     storageClass: "longhorn"
     accessMode: "ReadWriteOnce"
     size: "10Gi"
-  phpIniOverride:
-    enabled: true
-    storageClass: "longhorn"
-    accessMode: "ReadWriteOnce"
-    size: "1Mi"
-  nginxConfOverride:
-    enabled: true
-    storageClass: "longhorn"
-    accessMode: "ReadWriteOnce"
-    size: "1Mi"
-
-# Environment variables
-env:
-  FILE_UPLOAD_SIZE_LIMIT: "50"
 
 # SMTP configuration (optional)
 smtp:

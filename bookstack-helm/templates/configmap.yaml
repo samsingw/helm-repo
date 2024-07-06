@@ -1,23 +1,20 @@
-# configmap.yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: init-db-script
+  name: php-ini-config
   namespace: {{ .Release.Namespace }}
 data:
-  create-db.sh: |
-    #!/bin/bash
-    mysql -h ${DB_HOST} -u ${DB_USERNAME} -p${DB_PASSWORD} -e "CREATE DATABASE IF NOT EXISTS ${DB_DATABASE};"
+  php.ini: |
+    post_max_size = 15M
+    upload_max_filesize = 15M
+    max_execution_time = 90
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: init-app-key-script
+  name: nginx-conf-config
   namespace: {{ .Release.Namespace }}
 data:
-  generate-app-key.sh: |
-    #!/bin/bash
-    if [ -z "${APP_KEY}" ]; then
-      export APP_KEY=$(php artisan key:generate --show)
-      echo "Generated APP_KEY: ${APP_KEY}"
-    fi
+  nginx.conf: |
+    client_max_body_size 100m;
+    client_body_timeout 120s;
