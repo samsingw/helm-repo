@@ -1,3 +1,24 @@
+# values.yaml
+
+# General configuration
+appKey: ""
+appHost: "bookstack.ankhmorpork.dw"  # Replace with your DNS name
+
+# MariaDB configuration
+mariadb:
+  namespace: "mariadb-namespace"
+  host: "mariadb-instance"
+  port: 3306
+  rootUser: "root"
+  rootPassword: "yourRootPasswordHere"
+  database: "bookstack"
+  username: "bookstack"
+  password: "yourMariaDBPasswordHere"
+
+# Storage configuration
+storageType: "local_secure"
+
+# Persistent volume claims
 persistence:
   uploads:
     enabled: true
@@ -19,3 +40,17 @@ persistence:
     storageClass: "longhorn"
     accessMode: "ReadWriteOnce"
     size: "1Mi"
+
+# Environment variables
+env:
+  FILE_UPLOAD_SIZE_LIMIT: "50"
+
+# SMTP configuration (optional)
+smtp:
+  enabled: false
+  host: ""
+  port: 587
+  username: ""
+  password: ""
+  fromAddress: ""
+  fromName: ""

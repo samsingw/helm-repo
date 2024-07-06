@@ -50,3 +50,204 @@ spec:
     requests:
       storage: {{ .Values.persistence.nginxConfOverride.size }}
   storageClassName: {{ .Values.persistence.nginxConfOverride.storageClass }}
+# bookstack.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: {{ printf "%s-%s" .Release.Name "bookstack" }}
+  name: {{ printf "%s-%s" .Release.Name "bookstack" }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: {{ printf "%s-%s" .Release.Name "bookstack" }}
+  template:
+    metadata:
+      labels:
+        app: {{ printf "%s-%s" .Release.Name "bookstack" }}
+    spec:
+      initContainers:
+      - name: volume-init
+        image: busybox
+        command:
+          - sh
+          - "-c"
+          - "rm -rf /mnt/uploads/lost+found && chown -R www-data:www-data /mnt/uploads && rm -rf /mnt/storage/lost+found && chown -R www-data:www-data /mnt/storage"
+        volumeMounts:
+        - mountPath: /mnt/uploads
+          name: bookstack-uploads
+        - mountPath: /mnt/storage
+          name: bookstack-storage
+      - name: bookstack-init
+        image: mariadb:10.5
+        command:
+          - bash
+          - "-c"
+          - "while ! mariadb-admin ping --host={{ printf \"%s-%s.%s.svc.cluster.local\" .Release.Name \"mariadb\" .Values.mariadb.namespace }} --password={{ .Values.mariadb.rootPassword }}; do sleep 5; done;"
+      - name: generate-app-key
+        image: solidnerd/bookstack:23.12
+        command:
+          - bash
+          - "/scripts/generate-app-key.sh"
+        env:
+          - name: APP_KEY
+            value: {{ .Values.appKey | quote }}
+          - name: DB_HOST
+            value: {{ printf "%s-%s.%s.svc.cluster.local" .Release.Name "mariadb" .Values.mariadb.namespace | quote }}
+          - name: DB_ROOT_USER
+            value: {{ .Values.mariadb.rootUser | quote }}
+          - name: DB_ROOT_PASSWORD
+            value: {{ .Values.mariadb.rootPassword | quote }}
+          - name: DB_DATABASE
+            value: {{ .Values.mariadb.database | quote }}
+        volumeMounts:
+          - name: init-app-key-script
+            mountPath: /scripts
+      containers:
+      - env:
+        - name: APP_KEY
+          valueFrom:
+            secretKeyRef:
+              name: app-key-secret
+              key: APP_KEY
+        - name: APP_URL
+          value: {{ printf "%s%s" "https://" .Values.appHost | quote }}
+        - name: DB_HOST
+          value: {{ printf "%s-%s.%s.svc.cluster.local" .Release.Name "mariadb" .Values.mariadb.namespace | quote }}
+        - name: DB_DATABASE
+          value: {{ .Values.mariadb.database | quote }}
+        - name: DB_USERNAME
+          value: {{ .Values.mariadb.username | quote }}
+        - name: DB_PASSWORD
+          value: {{ .Values.mariadb.password | quote }}
+        - name: APP_VIEWS_BOOKS
+          value: grid
+        - name: SESSION_LIFETIME
+          value: "1440"
+        - name: SESSION_SECURE_COOKIE
+          value: "true"
+        - name: STORAGE_TYPE
+          value: {{ default "local_secure" .Values.storageType | quote }}
+        - name: FILE_UPLOAD_SIZE_LIMIT
+          value: {{ .Values.env.FILE_UPLOAD_SIZE_LIMIT | quote }}
+          {{- if .Values.smtp }}
+          {{- if .Values.smtp.enabled }}
+        - name: MAIL_HOST
+          value: {{ required "smtp.host is required" .Values.smtp.host | quote }}
+        - name: MAIL_PORT
+          value: {{ required "smtp.port is required" .Values.smtp.port | quote }}
+        - name: MAIL_USERNAME
+          value: {{ required "smtp.username is required" .Values.smtp.username | quote }}
+        - name: MAIL_PASSWORD
+          value: {{ required "smtp.password is required" .Values.smtp.password | quote }}
+        - name: MAIL_FROM
+          value: {{ required "smtp.fromAddress is required" .Values.smtp.fromAddress | quote }}
+        - name: MAIL_FROM_NAME
+          value: {{ required "smtp.fromName is required" .Values.smtp.fromName | quote }}
+        - name: MAIL_ENCRYPTION
+          value: "tls"
+          {{- end }}
+          {{- end }}
+        image: solidnerd/bookstack:23.12
+        name: bookstack
+        ports:
+        - containerPort: 8080
+          name: bookstack
+          protocol: TCP
+        resources:
+          requests:
+            cpu: 250m
+            memory: 256Mi
+        volumeMounts:
+        - mountPath: /var/www/bookstack/public/uploads
+          name: bookstack-uploads
+        - mountPath: /var/www/bookstack/storage/uploads
+          name: bookstack-storage
+        - mountPath: /usr/local/etc/php/conf.d
+          name: php-ini-override
+        - mountPath: /etc/nginx/conf.d
+          name: nginx-conf-override
+      volumes:
+      - name: bookstack-uploads
+        persistentVolumeClaim:
+          claimName: {{ printf "%s-%s" .Release.Name "uploads" }}
+      - name: bookstack-storage
+        persistentVolumeClaim:
+          claimName: {{ printf "%s-%s" .Release.Name "storage" }}
+      - name: php-ini-override
+        persistentVolumeClaim:
+          claimName: {{ printf "%s-%s" .Release.Name "phpini" }}
+      - name: nginx-conf-override
+        persistentVolumeClaim:
+          claimName: {{ printf "%s-%s" .Release.Name "nginxconf" }}
+      - name: init-app-key-script
+        configMap:
+          name: init-app-key-script
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ printf "%s-%s" .Release.Name "uploads" }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  accessModes:
+    - {{ .Values.persistence.uploads.accessMode }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.uploads.size }}
+  storageClassName: {{ .Values.persistence.uploads.storageClass }}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ printf "%s-%s" .Release.Name "storage" }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  accessModes:
+    - {{ .Values.persistence.storage.accessMode }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.storage.size }}
+  storageClassName: {{ .Values.persistence.storage.storageClass }}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ printf "%s-%s" .Release.Name "phpini" }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  accessModes:
+    - {{ .Values.persistence.phpIniOverride.accessMode }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.phpIniOverride.size }}
+  storageClassName: {{ .Values.persistence.phpIniOverride.storageClass }}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ printf "%s-%s" .Release.Name "nginxconf" }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  accessModes:
+    - {{ .Values.persistence.nginxConfOverride.accessMode }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.nginxConfOverride.size }}
+  storageClassName: {{ .Values.persistence.nginxConfOverride.storageClass }}
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: app-key-secret
+  namespace: {{ .Release.Namespace }}
+stringData:
+  APP_KEY: ""
+---
+apiVersion: v1
+kind: Service
+metadata
