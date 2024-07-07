@@ -41,7 +41,7 @@ spec:
             - name: DB_DATABASE
               value: "{{ .Values.env.DB_DATABASE }}"
             - name: FILE_UPLOAD_SIZE_LIMIT
-              value: "{{ .Values.env.FILE_UPLOAD_SIZE_LIMIT }}"
+              value: {{ .Values.env.FILE_UPLOAD_SIZE_LIMIT }}
           livenessProbe:
             httpGet:
               path: /
