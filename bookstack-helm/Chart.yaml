@@ -10,5 +10,5 @@ name: bookstack
 sources:
 - https://github.com/samsingw/bookstack-helm
 type: application
-version: 1.9.8
+version: 1.9.10
 icon:  "https://upload.wikimedia.org/wikipedia/commons/d/d2/BookStack_logo.svg"

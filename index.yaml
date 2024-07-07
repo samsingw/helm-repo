@@ -5,7 +5,43 @@ entries:
       sha: 67c139c
     apiVersion: v2
     appVersion: "23.12"
-    created: "2024-07-07T09:14:14.299222852+02:00"
+    created: "2024-07-07T09:36:51.421287879+02:00"
+    description: Wiki application made by Bookstack and Mariadb-Galera Cluster
+    digest: 76849c8dc4571c6df1fece9e2b6edf4fffd5306ed5f7a87da30b8c3d59bc5261
+    icon: https://upload.wikimedia.org/wikipedia/commons/d/d2/BookStack_logo.svg
+    maintainers:
+    - email: saw@samsinger.at
+      name: saw
+    name: bookstack
+    sources:
+    - https://github.com/samsingw/bookstack-helm
+    type: application
+    urls:
+    - bookstack-1.9.10.tgz
+    version: 1.9.10
+  - annotations:
+      sha: 67c139c
+    apiVersion: v2
+    appVersion: "23.12"
+    created: "2024-07-07T09:36:51.42191379+02:00"
+    description: Wiki application made by Bookstack and Mariadb-Galera Cluster
+    digest: 515efb877d2840b9d512ef7268af643b315f4ef116933c28589a8388d40033f2
+    icon: https://upload.wikimedia.org/wikipedia/commons/d/d2/BookStack_logo.svg
+    maintainers:
+    - email: saw@samsinger.at
+      name: saw
+    name: bookstack
+    sources:
+    - https://github.com/samsingw/bookstack-helm
+    type: application
+    urls:
+    - bookstack-1.9.9.tgz
+    version: 1.9.9
+  - annotations:
+      sha: 67c139c
+    apiVersion: v2
+    appVersion: "23.12"
+    created: "2024-07-07T09:36:51.421717152+02:00"
     description: Wiki application made by Bookstack and Mariadb-Galera Cluster
     digest: 1d4d0d5d51dad702271dcf6cfc6d563f87195ef99962c8679b3738524c94d1b3
     icon: https://upload.wikimedia.org/wikipedia/commons/d/d2/BookStack_logo.svg
@@ -23,7 +59,7 @@ entries:
       sha: 67c139c
     apiVersion: v2
     appVersion: "23.12"
-    created: "2024-07-07T09:14:14.29902364+02:00"
+    created: "2024-07-07T09:36:51.421511037+02:00"
     description: Wiki application made by Bookstack and Mariadb-Galera Cluster
     digest: 769e904ae51edccef5a3f93ad3972234557d1da239e0ace52b1edd10d6e73e0e
     icon: https://upload.wikimedia.org/wikipedia/commons/d/d2/BookStack_logo.svg
@@ -40,7 +76,7 @@ entries:
   deconz:
   - apiVersion: v2
     appVersion: 0.9.5
-    created: "2024-07-07T09:14:14.3000036+02:00"
+    created: "2024-07-07T09:36:51.42254989+02:00"
     description: A Helm chart for Kubernetes
     digest: 2fb2cee2af2ca89ff8b0a7e3baef7d76e48476fcfe19f240d5636941ebb74155
     name: deconz
@@ -50,7 +86,7 @@ entries:
     version: 0.3.1
   - apiVersion: v2
     appVersion: 0.9.3
-    created: "2024-07-07T09:14:14.299743464+02:00"
+    created: "2024-07-07T09:36:51.422329608+02:00"
     description: A Helm chart for Kubernetes
     digest: 8a47459d0e0c58af3fd87b2209addff92f2cd5988692e85ed6a04a304891d578
     name: deconz
@@ -60,7 +96,7 @@ entries:
     version: 0.3.0
   - apiVersion: v2
     appVersion: 0.9.1
-    created: "2024-07-07T09:14:14.299501482+02:00"
+    created: "2024-07-07T09:36:51.422121078+02:00"
     description: A Helm chart for Kubernetes
     digest: 82e769c7cb1402c96b2cede193e9f99d95a2fe2c3cfea3f833cf100ec3f5b917
     name: deconz
@@ -71,7 +107,7 @@ entries:
   openhab:
   - apiVersion: v2
     appVersion: 4.1.3
-    created: "2024-07-07T09:14:14.300638635+02:00"
+    created: "2024-07-07T09:36:51.423168908+02:00"
     description: A Helm chart for Kubernetes
     digest: 76226d827da4d2ff6fb9385eb320f6a38cbc6cbd7048803bdbe2fa13c65c8548
     icon: https://v2.openhab.org/openhab-logo-square.png
@@ -82,7 +118,7 @@ entries:
     version: 1.0.0
   - apiVersion: v2
     appVersion: 4.1.3
-    created: "2024-07-07T09:14:14.300307767+02:00"
+    created: "2024-07-07T09:36:51.42283873+02:00"
     description: A Helm chart for Kubernetes
     digest: a6eb85c180f6bea4a20df7566b97754a5693d47ecedccb677617f75c77b9f164
     icon: https://v2.openhab.org/openhab-logo-square.png
@@ -91,4 +127,4 @@ entries:
     urls:
     - openhab-0.3.0.tgz
     version: 0.3.0
-generated: "2024-07-07T09:14:14.298740382+02:00"
+generated: "2024-07-07T09:36:51.420986806+02:00"
