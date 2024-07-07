@@ -1,0 +1,50 @@
+{{- if .Values.ingress.enabled -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "bookstack.fullname" . }}
+  annotations:
+    {{- range $key, $value := .Values.ingress.annotations }}
+      {{ $key }}: {{ $value | quote }}
+    {{- end }}
+spec:
+  rules:
+    {{- range .Values.ingress.hosts }}
+    - host: {{ .host }}
+      http:
+        paths:
+          {{- range .paths }}
+          - path: {{ . }}
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: {{ include "bookstack.fullname" $. }}
+                port:
+                  number: 80
+          {{- end }}
+    {{- end }}
+  tls:
+    {{- range .Values.ingress.tls }}
+    - hosts:
+        {{- range .hosts }}
+        - {{ . }}
+        {{- end }}
+      secretName: {{ .secretName }}
+    {{- end }}
+  {{- if .Values.ingress.clusterIssuer }}
+  apiVersion: cert-manager.io/v1
+  kind: Certificate
+  metadata:
+    name: {{ include "bookstack.fullname" . }}-tls
+  spec:
+    secretName: {{ .Values.ingress.tls.secretName }}
+    issuerRef:
+      name: {{ .Values.ingress.clusterIssuer }}
+      kind: ClusterIssuer
+    commonName: {{ .Values.ingress.hosts[0].host }}
+    dnsNames:
+    {{- range .Values.ingress.hosts }}
+      - {{ .host }}
+    {{- end }}
+  {{- end }}
+{{- end }}

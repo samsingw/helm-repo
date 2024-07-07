@@ -1,0 +1,33 @@
+replicaCount: 1
+
+image:
+  repository: solidnerd/bookstack
+  pullPolicy: IfNotPresent
+  tag: latest
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  annotations: {}
+  hosts:
+    - host: bookstack.example.com
+      paths: ["/"]
+  tls:
+    - hosts:
+        - bookstack.example.com
+      secretName: bookstack-tls
+  clusterIssuer: letsencrypt-prod
+
+persistence:
+  enabled: true
+  accessModes: ["ReadWriteOnce"]
+  size: 10Gi
+  storageClass: longhorn
+
+resources: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}

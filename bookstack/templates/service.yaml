@@ -1,0 +1,22 @@
+replicaCount: 1
+
+image:
+  repository: solidnerd/bookstack
+  pullPolicy: IfNotPresent
+  tag: latest
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+  annotations: {}
+  hosts:
+    - host: chart-example.local
+      paths: []
+
+resources: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}
