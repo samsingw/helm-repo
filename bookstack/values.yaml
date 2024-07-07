@@ -1,4 +1,4 @@
-#v1.9.14
+#v2.0.0
 replicaCount: 1
 
 image:
@@ -14,11 +14,11 @@ ingress:
   enabled: true
   annotations: {}
   hosts:
-    - host: bookstack.ankhmorpork.dw
+    - host: bookstack.example.com
       paths: ["/"]
   tls:
     - hosts:
-        - bookstack.ankhmorpork.dw
+        - bookstack.example.com
       secretName: bookstack-tls
   clusterIssuer: selfsigned-issuer
 
@@ -42,12 +42,13 @@ env:
   PUID: 1000
   PGID: 1000
   TZ: Europe/Vienna
-  APP_URL: https://bookstack.ankhmorpork.dw
-  DB_HOST: mariadb-cluster-mariadb-galera.mariadb-system.svc.cluster.local
+  APP_URL: https://bookstack.example.com
+  DB_HOST: localhost
   DB_PORT: 3306
   DB_USER: bookstack
-  DB_PASS: bsm:Uhap1$adK.B
+  DB_PASS: <your password here>
   DB_DATABASE: bookstack
+  FILE_UPLOAD_SIZE_LIMIT: "50"
 
 resources: {}
 nodeSelector: {}

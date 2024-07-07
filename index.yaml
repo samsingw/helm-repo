@@ -3,40 +3,19 @@ entries:
   bookstack:
   - apiVersion: v2
     appVersion: 24.5.2-ls152
-    created: "2024-07-07T11:26:56.894469691+02:00"
+    created: "2024-07-07T12:49:09.198264842+02:00"
     description: A Helm chart for Kubernetes
-    digest: 1136f415a9145cf12a9dac9e325e168c95eda12602e694a11f57453963687ec7
+    digest: 90fb13734936a96f5cfade4d5240dc5ac75cb998ebff2f81c10dcbdebae1b408
     icon: https://upload.wikimedia.org/wikipedia/commons/d/d2/BookStack_logo.svg
     name: bookstack
     type: application
     urls:
-    - bookstack-1.9.14.tgz
-    version: 1.9.14
-  - apiVersion: v2
-    appVersion: 24.5.2-ls152
-    created: "2024-07-07T11:26:56.894273404+02:00"
-    description: A Helm chart for Kubernetes
-    digest: f4ecf34b9a6a4ba9b208e104c831e8f38dba30c4532e023385326cbe5fb54109
-    icon: https://upload.wikimedia.org/wikipedia/commons/d/d2/BookStack_logo.svg
-    name: bookstack
-    type: application
-    urls:
-    - bookstack-1.9.13.tgz
-    version: 1.9.13
-  - apiVersion: v2
-    appVersion: 24.5.2-ls152
-    created: "2024-07-07T11:26:56.894089561+02:00"
-    description: A Helm chart for Kubernetes
-    digest: e387407a9d65ff669e2bc91ea3b1191cf39e7fc5f71899efb5ef9f667ba749a2
-    name: bookstack
-    type: application
-    urls:
-    - bookstack-1.9.12.tgz
-    version: 1.9.12
+    - bookstack-2.0.0.tgz
+    version: 2.0.0
   deconz:
   - apiVersion: v2
     appVersion: 0.9.5
-    created: "2024-07-07T11:26:56.895072416+02:00"
+    created: "2024-07-07T12:49:09.199043245+02:00"
     description: A Helm chart for Kubernetes
     digest: 2fb2cee2af2ca89ff8b0a7e3baef7d76e48476fcfe19f240d5636941ebb74155
     name: deconz
@@ -46,7 +25,7 @@ entries:
     version: 0.3.1
   - apiVersion: v2
     appVersion: 0.9.3
-    created: "2024-07-07T11:26:56.894862634+02:00"
+    created: "2024-07-07T12:49:09.198785985+02:00"
     description: A Helm chart for Kubernetes
     digest: 8a47459d0e0c58af3fd87b2209addff92f2cd5988692e85ed6a04a304891d578
     name: deconz
@@ -56,7 +35,7 @@ entries:
     version: 0.3.0
   - apiVersion: v2
     appVersion: 0.9.1
-    created: "2024-07-07T11:26:56.894673201+02:00"
+    created: "2024-07-07T12:49:09.198538162+02:00"
     description: A Helm chart for Kubernetes
     digest: 82e769c7cb1402c96b2cede193e9f99d95a2fe2c3cfea3f833cf100ec3f5b917
     name: deconz
@@ -67,7 +46,7 @@ entries:
   openhab:
   - apiVersion: v2
     appVersion: 4.1.3
-    created: "2024-07-07T11:26:56.895681693+02:00"
+    created: "2024-07-07T12:49:09.199796682+02:00"
     description: A Helm chart for Kubernetes
     digest: 76226d827da4d2ff6fb9385eb320f6a38cbc6cbd7048803bdbe2fa13c65c8548
     icon: https://v2.openhab.org/openhab-logo-square.png
@@ -78,7 +57,7 @@ entries:
     version: 1.0.0
   - apiVersion: v2
     appVersion: 4.1.3
-    created: "2024-07-07T11:26:56.89535868+02:00"
+    created: "2024-07-07T12:49:09.199392357+02:00"
     description: A Helm chart for Kubernetes
     digest: a6eb85c180f6bea4a20df7566b97754a5693d47ecedccb677617f75c77b9f164
     icon: https://v2.openhab.org/openhab-logo-square.png
@@ -87,4 +66,4 @@ entries:
     urls:
     - openhab-0.3.0.tgz
     version: 0.3.0
-generated: "2024-07-07T11:26:56.893850435+02:00"
+generated: "2024-07-07T12:49:09.197895963+02:00"

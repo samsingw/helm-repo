@@ -21,6 +21,27 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: 80
+          env:
+            - name: PUID
+              value: "{{ .Values.env.PUID }}"
+            - name: PGID
+              value: "{{ .Values.env.PGID }}"
+            - name: TZ
+              value: "{{ .Values.env.TZ }}"
+            - name: APP_URL
+              value: "{{ .Values.env.APP_URL }}"
+            - name: DB_HOST
+              value: "{{ .Values.env.DB_HOST }}"
+            - name: DB_PORT
+              value: "{{ .Values.env.DB_PORT }}"
+            - name: DB_USER
+              value: "{{ .Values.env.DB_USER }}"
+            - name: DB_PASS
+              value: "{{ .Values.env.DB_PASS }}"
+            - name: DB_DATABASE
+              value: "{{ .Values.env.DB_DATABASE }}"
+            - name: FILE_UPLOAD_SIZE_LIMIT
+              value: "{{ .Values.env.FILE_UPLOAD_SIZE_LIMIT }}"
           livenessProbe:
             httpGet:
               path: /
