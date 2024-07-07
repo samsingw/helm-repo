@@ -14,6 +14,7 @@ spec:
       labels:
         {{- include "bookstack.selectorLabels" . | nindent 8 }}
     spec:
+      serviceAccountName: {{ include "bookstack.serviceAccountName" . }}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"

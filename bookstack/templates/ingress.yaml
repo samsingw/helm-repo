@@ -18,7 +18,7 @@ spec:
             pathType: ImplementationSpecific
             backend:
               service:
-                name: {{ include "bookstack.fullname" $. }}
+                name: {{ include "bookstack.fullname" $ }}
                 port:
                   number: 80
           {{- end }}
@@ -31,20 +31,4 @@ spec:
         {{- end }}
       secretName: {{ .secretName }}
     {{- end }}
-  {{- if .Values.ingress.clusterIssuer }}
-  apiVersion: cert-manager.io/v1
-  kind: Certificate
-  metadata:
-    name: {{ include "bookstack.fullname" . }}-tls
-  spec:
-    secretName: {{ .Values.ingress.tls.secretName }}
-    issuerRef:
-      name: {{ .Values.ingress.clusterIssuer }}
-      kind: ClusterIssuer
-    commonName: {{ .Values.ingress.hosts[0].host }}
-    dnsNames:
-    {{- range .Values.ingress.hosts }}
-      - {{ .host }}
-    {{- end }}
-  {{- end }}
 {{- end }}

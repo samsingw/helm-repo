@@ -1,0 +1,16 @@
+{{- if and .Values.ingress.enabled .Values.ingress.clusterIssuer }}
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ include "bookstack.fullname" . }}-tls
+spec:
+  secretName: {{ (index .Values.ingress.tls 0).secretName }}
+  issuerRef:
+    name: {{ .Values.ingress.clusterIssuer }}
+    kind: ClusterIssuer
+  commonName: {{ (index .Values.ingress.hosts 0).host }}
+  dnsNames:
+    {{- range .Values.ingress.hosts }}
+    - {{ .host }}
+    {{- end }}
+{{- end }}
