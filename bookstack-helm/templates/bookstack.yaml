@@ -30,12 +30,14 @@ spec:
           name: bookstack-uploads
         - mountPath: /mnt/storage
           name: bookstack-storage
+      {{- if .Values.mariadb.enabled }}
       - name: bookstack-init
         image: mariadb:10.5
         command:
           - bash
           - "-c"
           - "while ! mariadb-admin ping --host={{ printf \"%s-%s.%s.svc.cluster.local\" .Release.Name \"mariadb\" .Values.mariadb.namespace }} --password={{ .Values.mariadb.rootPassword }}; do sleep 5; done;"
+      {{- end }}
       - name: generate-app-key
         image: solidnerd/bookstack:23.12
         command:
@@ -45,13 +47,13 @@ spec:
           - name: APP_KEY
             value: {{ .Values.appKey | quote }}
           - name: DB_HOST
-            value: {{ printf "%s-%s.%s.svc.cluster.local" .Release.Name "mariadb" .Values.mariadb.namespace | quote }}
-          - name: DB_ROOT_USER
-            value: {{ .Values.mariadb.rootUser | quote }}
-          - name: DB_ROOT_PASSWORD
-            value: {{ .Values.mariadb.rootPassword | quote }}
+            value: {{ .Values.env.DB_HOST | quote }}
+          - name: DB_USER
+            value: {{ .Values.env.DB_USER | quote }}
+          - name: DB_PASS
+            value: {{ .Values.env.DB_PASS | quote }}
           - name: DB_DATABASE
-            value: {{ .Values.mariadb.database | quote }}
+            value: {{ .Values.env.DB_DATABASE | quote }}
         volumeMounts:
           - name: init-app-key-script
             mountPath: /scripts
@@ -65,13 +67,13 @@ spec:
         - name: APP_URL
           value: {{ printf "%s%s" "https://" .Values.appHost | quote }}
         - name: DB_HOST
-          value: {{ printf "%s-%s.%s.svc.cluster.local" .Release.Name "mariadb" .Values.mariadb.namespace | quote }}
+          value: {{ .Values.env.DB_HOST | quote }}
         - name: DB_DATABASE
-          value: {{ .Values.mariadb.database | quote }}
+          value: {{ .Values.env.DB_DATABASE | quote }}
         - name: DB_USERNAME
-          value: {{ .Values.mariadb.username | quote }}
+          value: {{ .Values.env.DB_USER | quote }}
         - name: DB_PASSWORD
-          value: {{ .Values.mariadb.password | quote }}
+          value: {{ .Values.env.DB_PASS | quote }}
         - name: APP_VIEWS_BOOKS
           value: grid
         - name: SESSION_LIFETIME
@@ -82,6 +84,8 @@ spec:
           value: {{ default "local_secure" .Values.storageType | quote }}
         - name: FILE_UPLOAD_SIZE_LIMIT
           value: {{ .Values.env.FILE_UPLOAD_SIZE_LIMIT | quote }}
+        - name: TZ
+          value: {{ .Values.env.TZ | quote }}
           {{- if .Values.smtp }}
           {{- if .Values.smtp.enabled }}
         - name: MAIL_HOST

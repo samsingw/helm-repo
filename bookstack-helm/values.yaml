@@ -1,12 +1,13 @@
 # values.yaml
-# v1.9.4
+# v1.9.7
 
 # General configuration
 appKey: ""
 appHost: "bookstack.ankhmorpork.dw"  # Replace with your DNS name
 
-# MariaDB configuration
+# MariaDB configuration (disabled by default)
 mariadb:
+  enabled: false
   namespace: "mariadb-namespace"
   host: "mariadb-instance"
   port: 3306
@@ -45,6 +46,11 @@ persistence:
 # Environment variables
 env:
   FILE_UPLOAD_SIZE_LIMIT: "50"
+  DB_HOST: ""
+  DB_USER: "bookstack"
+  DB_PASS: ""
+  DB_DATABASE: "bookstack"
+  TZ: "UTC"
 
 # SMTP configuration (optional)
 smtp:
