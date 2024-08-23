@@ -1,102 +1,56 @@
 # openhab/values.yaml
 image:
   repository: openhab/openhab
-  tag: 4.1.3
+  tag: 4.2.1
   pullPolicy: IfNotPresent
 
+# -- environment variables.
+# @default -- See below
+env:
+  # -- Set the container timezone
+  TZ: UTC
+
+  # -- Set the correct user id
+  USER_ID: 9001
+  # -- Set the correct group id
+  GROUP_ID: 9001
+
 service:
-  type: ClusterIP
-  port: 8080
-  ports:
-    - name: http
-      port: 8080
-      targetPort: 8080
-    - name: https
-      port: 8443
-      targetPort: 8443
-
-persistence:
-  enabled: true
-  accessModes: 
-    - ReadWriteOnce
-  size: 5Gi
-  annotations: {}
-  storageClass: "longhorn"
-
-volumeMounts:
-  - name: localtime
-    mountPath: /etc/localtime
-    readOnly: true
-  - name: timezone
-    mountPath: /etc/timezone
-    readOnly: true
-  - name: openhab-addons
-    mountPath: /openhab/addons
-  - name: openhab-conf
-    mountPath: /openhab/conf
-  - name: openhab-userdata
-    mountPath: /openhab/userdata
-
-volumes:
-  - name: localtime
-    hostPath:
-      path: /etc/localtime
-  - name: timezone
-    hostPath:
-      path: /etc/timezone
-  - name: openhab-addons
-    persistentVolumeClaim:
-      claimName: openhab-addons-pvc
-  - name: openhab-conf
-    persistentVolumeClaim:
-      claimName: openhab-conf-pvc
-  - name: openhab-userdata
-    persistentVolumeClaim:
-      claimName: openhab-userdata-pvc
+  main:
+    ports:
+      http:
+        port: 8080
+      languageserver:
+        enabled: false
+        protcol: TCP
+        port: 5007
+  type: "ClusterIP"
 
 ingress:
-  enabled: true
+  # -- Enable and configure ingress settings for the chart under this key.
+  # @default -- See values.yaml
+  main:
+    enabled: false
 
-  className: "nginx"
-  annotations:
-    kubernetes.io/ingress.className: nginx
-    kubernetes.io/tls-acme: "true"
-    cert-manager.io/cluster-issuer: selfsigned-issuer
-  hosts:
-    - host: openhab.ankhmorpork.dw
-      paths:
-        - path: /
-          pathType: Prefix
-          backend:
-            service:
-              name: openhab
-              port:
-                number: 8080
-  tls:
-    - secretName: openhab-tls
-      hosts:
-        - openhab.ankhmorpork.dw
+persistence:
+  conf:
+    enabled: false
+    mountPath: /openhab/conf
 
-user:
-  id: "9001"
-  group: "9001"
+  userdata:
+    enabled: false
+    mountPath: /openhab/userdata
 
-extraEnv:
-  - name: CRYPTO_POLICY
-    value: "unlimited"
-  - name: EXTRA_JAVA_OPTS
-    value: "-Duser.timezone=Europe/Vienna"
-  - name: OPENHAB_HTTP_PORT
-    value: "8080"
-  - name: OPENHAB_HTTPS_PORT
-    value: "8443"
-  - name: OH_USER_ID
-    value: "9001"
-  - name: OH_GROUP_ID
-    value: "9001"   
+  addons:
+    enabled: false
+    mountPath: /openhab/addons
+
+  java:
+    enabled: false
+    mountPath: /openhab/.java
 
 serviceAccount:
-  create: true
+  create: flase
   name: "openhab"
 
 autoscaling:
