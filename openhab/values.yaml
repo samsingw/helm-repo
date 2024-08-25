@@ -36,25 +36,25 @@ persistence:
   conf:
     enabled: false
     storageClass: ""
-    accessMode: ReadWriteOnce
+    accessModes: ReadWriteOnce
     mountPath: /openhab/conf
 
   userdata:
     enabled: false
     storageClass: ""
-    accessMode: ReadWriteOnce
+    accessModes: ReadWriteOnce
     mountPath: /openhab/userdata
 
   addons:
     enabled: false
     storageClass: ""
-    accessMode: ReadWriteOnce
+    accessModes: ReadWriteOnce
     mountPath: /openhab/addons
 
   java:
     enabled: false
     storageClass: ""
-    accessMode: ReadWriteOnce
+    accessModes: ReadWriteOnce
     mountPath: /openhab/.java
 
 serviceAccount:
